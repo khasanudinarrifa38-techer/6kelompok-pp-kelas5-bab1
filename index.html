@@ -1,0 +1,3168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Edukasi Pancasila - 6 Paket Soal Kelas 5 SD</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tone.js for Web Audio Synth SFX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+            min-height: 100vh;
+            user-select: none;
+        }
+        .font-header {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+        .card-hover {
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.02);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 6px;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop {
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+    </style>
+</head>
+<body class="flex flex-col justify-between text-slate-800">
+
+    <!-- Navigation Header -->
+    <header class="bg-red-600 text-white shadow-xl border-b-4 border-yellow-400 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="showScreen('homeScreen')">
+                <div class="bg-yellow-400 text-red-700 w-11 h-11 rounded-2xl flex items-center justify-center font-extrabold text-2xl shadow-inner border-2 border-yellow-200">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-black font-header tracking-wide leading-none text-yellow-300 drop-shadow">KUIS PANCASILA</h1>
+                    <p class="text-xs text-red-100 font-bold">Materi PKN Bab 1 • SD/MI Kelas 5</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleSound()" id="soundBtn" class="bg-red-700 hover:bg-red-800 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 border border-red-400 shadow">
+                    <i class="fa-solid fa-volume-high"></i> <span class="hidden md:inline">Suara: ON</span>
+                </button>
+                <button onclick="openMateriModal()" class="bg-yellow-400 hover:bg-yellow-300 text-red-950 px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-book-open"></i> <span class="hidden md:inline">Rangkuman Materi</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto w-full px-4 py-6 flex-1 flex flex-col justify-center">
+
+        <!-- SCREEN 1: Package / Group Selection -->
+        <div id="homeScreen" class="animate-pop">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="bg-red-100 text-red-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider border border-red-200 inline-block mb-2">
+                    <i class="fa-solid fa-layer-group mr-1"></i> Pilih Paket Belajar & Kelompok
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 font-header leading-tight">
+                    Petualangan Edukasi Pancasila
+                </h2>
+                <p class="text-sm text-slate-600 mt-2 font-semibold">
+                    Tersedia 50 Soal Pilihan Ganda berdasarkan Buku LKS PKN Bab 1 Kelas 5. Pilih salah satu dari 6 paket kelompok di bawah ini!
+                </p>
+            </div>
+
+            <!-- 6 Group Packages Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+                
+                <!-- Package 1: Bintang -->
+                <div onclick="selectPackage(1)" class="bg-white rounded-3xl p-5 shadow-lg border-2 border-amber-300 card-hover cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-amber-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-3xl shadow-md shrink-0">
+                            ⭐
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-black uppercase text-amber-600 tracking-wider">Kelompok 1</span>
+                            <h3 class="text-xl font-extrabold text-slate-800 font-header leading-tight">Bintang</h3>
+                            <span class="inline-block bg-amber-100 text-amber-800 text-[11px] font-bold px-2 py-0.5 rounded-md mt-1">9 Soal</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Topik: Sejarah Pembentukan BPUPK, Latar Belakang, Tugas, & Anggota BPUPK.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-amber-600">
+                        <span>Mulai Kuis <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <i class="fa-solid fa-circle-play text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Package 2: Rantai -->
+                <div onclick="selectPackage(2)" class="bg-white rounded-3xl p-5 shadow-lg border-2 border-red-300 card-hover cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-red-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-14 h-14 rounded-2xl bg-red-500 text-white flex items-center justify-center text-3xl shadow-md shrink-0">
+                            ⛓️
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-black uppercase text-red-600 tracking-wider">Kelompok 2</span>
+                            <h3 class="text-xl font-extrabold text-slate-800 font-header leading-tight">Rantai</h3>
+                            <span class="inline-block bg-red-100 text-red-800 text-[11px] font-bold px-2 py-0.5 rounded-md mt-1">8 Soal</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Topik: Tokoh Perumus Dasar Negara (Moh. Yamin, Prof. Soepomo, & Ir. Soekarno).</p>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-red-600">
+                        <span>Mulai Kuis <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <i class="fa-solid fa-circle-play text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Package 3: Pohon Beringin -->
+                <div onclick="selectPackage(3)" class="bg-white rounded-3xl p-5 shadow-lg border-2 border-emerald-300 card-hover cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-emerald-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-3xl shadow-md shrink-0">
+                            🌳
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-black uppercase text-emerald-600 tracking-wider">Kelompok 3</span>
+                            <h3 class="text-xl font-extrabold text-slate-800 font-header leading-tight">Pohon Beringin</h3>
+                            <span class="inline-block bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2 py-0.5 rounded-md mt-1">8 Soal</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Topik: Panitia Sembilan, Perumusan & Isi Piagam Jakarta (22 Juni 1945).</p>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-emerald-600">
+                        <span>Mulai Kuis <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <i class="fa-solid fa-circle-play text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Package 4: Kepala Banteng -->
+                <div onclick="selectPackage(4)" class="bg-white rounded-3xl p-5 shadow-lg border-2 border-purple-300 card-hover cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-purple-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-3xl shadow-md shrink-0">
+                            🐂
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-black uppercase text-purple-600 tracking-wider">Kelompok 4</span>
+                            <h3 class="text-xl font-extrabold text-slate-800 font-header leading-tight">Kepala Banteng</h3>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-[11px] font-bold px-2 py-0.5 rounded-md mt-1">8 Soal</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Topik: Sidang BPUPK Kedua, Pembentukan PPKI, & Penetapan Pancasila 18 Agustus 1945.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-purple-600">
+                        <span>Mulai Kuis <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <i class="fa-solid fa-circle-play text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Package 5: Padi dan Kapas -->
+                <div onclick="selectPackage(5)" class="bg-white rounded-3xl p-5 shadow-lg border-2 border-yellow-300 card-hover cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-yellow-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-500 text-white flex items-center justify-center text-3xl shadow-md shrink-0">
+                            🌾
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-black uppercase text-yellow-700 tracking-wider">Kelompok 5</span>
+                            <h3 class="text-xl font-extrabold text-slate-800 font-header leading-tight">Padi dan Kapas</h3>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-[11px] font-bold px-2 py-0.5 rounded-md mt-1">8 Soal</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Topik: Makna Garuda Pancasila, Jumlah Bulu, Perisai, & Arti Simbol 5 Sila.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-yellow-700">
+                        <span>Mulai Kuis <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <i class="fa-solid fa-circle-play text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Package 6: Garuda -->
+                <div onclick="selectPackage(6)" class="bg-white rounded-3xl p-5 shadow-lg border-2 border-blue-300 card-hover cursor-pointer relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+                    <div class="flex items-center space-x-4 mb-3">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-3xl shadow-md shrink-0">
+                            🦅
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-black uppercase text-blue-600 tracking-wider">Kelompok 6</span>
+                            <h3 class="text-xl font-extrabold text-slate-800 font-header leading-tight">Garuda</h3>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-[11px] font-bold px-2 py-0.5 rounded-md mt-1">9 Soal</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Topik: Nilai Juang Para Pendiri Bangsa & Pengamalan Sila 1-5 di Keluarga, Sekolah, & Masyarakat.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-blue-600">
+                        <span>Mulai Kuis <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        <i class="fa-solid fa-circle-play text-lg"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- All 50 Questions Master Mode Button -->
+            <div class="text-center">
+                <button onclick="selectPackage(0)" class="bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-700 hover:to-rose-800 text-white font-extrabold py-3.5 px-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform active:scale-95 text-base flex items-center justify-center gap-3 mx-auto border-2 border-yellow-300">
+                    <i class="fa-solid fa-trophy text-yellow-300 text-xl"></i>
+                    <span>UJIAN KOMPREHENSIF LENGKAP (SEMUA 50 SOAL)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: Quiz Workspace -->
+        <div id="quizScreen" class="hidden animate-pop">
+            
+            <!-- Quiz Info & Progress Header -->
+            <div class="bg-white rounded-3xl p-5 shadow-lg border border-slate-200 mb-5 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <div id="pkgBadgeIcon" class="w-12 h-12 rounded-2xl bg-red-600 text-white flex items-center justify-center text-2xl shadow">
+                        ⭐
+                    </div>
+                    <div>
+                        <span id="pkgSubTitle" class="text-xs font-bold uppercase text-slate-400">Paket Kelompok</span>
+                        <h3 id="pkgTitle" class="text-lg font-black text-slate-800 font-header leading-tight">Paket Bintang</h3>
+                    </div>
+                </div>
+
+                <!-- Timer & Question Count -->
+                <div class="flex items-center space-x-4">
+                    <div class="bg-slate-100 px-3.5 py-1.5 rounded-2xl border border-slate-200 flex items-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-red-500 text-lg"></i>
+                        <div>
+                            <span class="block text-[10px] font-bold text-slate-400 uppercase leading-none">Waktu</span>
+                            <span id="timerDisplay" class="text-sm font-black text-slate-700 font-mono">00:00</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50 px-3.5 py-1.5 rounded-2xl border border-red-200">
+                        <span class="block text-[10px] font-bold text-red-400 uppercase leading-none">Progres</span>
+                        <span id="progressText" class="text-sm font-black text-red-600 font-mono">Soal 1 / 9</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-200 rounded-full h-3 mb-5 overflow-hidden">
+                <div id="progressBar" class="bg-gradient-to-r from-yellow-400 to-red-600 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border-2 border-slate-200 relative mb-5">
+                <div class="flex justify-between items-center mb-3">
+                    <span id="questionTag" class="bg-red-100 text-red-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                        Soal #1
+                    </span>
+                    <span id="categoryLabel" class="text-xs font-bold text-slate-400">BPUPK</span>
+                </div>
+
+                <h3 id="questionText" class="text-lg md:text-xl font-extrabold text-slate-800 mb-6 leading-relaxed">
+                    Pertanyaan soal akan ditampilkan di sini?
+                </h3>
+
+                <!-- Options List -->
+                <div id="optionsContainer" class="space-y-3">
+                    <!-- Dynamic option buttons rendered via JavaScript -->
+                </div>
+
+                <!-- Explanation Box (Appears after answering) -->
+                <div id="explanationBox" class="hidden mt-6 p-4 rounded-2xl text-xs sm:text-sm font-bold border animate-pop">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+
+            <!-- Quiz Navigation Controls -->
+            <div class="flex justify-between items-center">
+                <button onclick="confirmExitQuiz()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-extrabold px-5 py-2.5 rounded-2xl text-xs transition flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu
+                </button>
+
+                <button id="nextBtn" onclick="nextQuestion()" class="hidden bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-extrabold px-6 py-2.5 rounded-2xl text-xs transition shadow-lg flex items-center gap-2">
+                    <span>Soal Selanjutnya</span> <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: Results & Performance Evaluation -->
+        <div id="resultScreen" class="hidden animate-pop">
+            <div class="bg-white rounded-3xl p-6 md:p-8 shadow-2xl border-4 border-yellow-400 text-center max-w-3xl mx-auto relative overflow-hidden">
+                
+                <div class="inline-block p-4 bg-yellow-100 rounded-full text-yellow-600 text-5xl mb-3 shadow-inner">
+                    🏆
+                </div>
+
+                <span class="block text-xs font-black text-red-600 uppercase tracking-widest">Laporan Hasil pengerjaan</span>
+                <h2 id="resultGroupTitle" class="text-3xl font-extrabold text-slate-800 font-header mt-1 mb-2">
+                    Hasil Paket Bintang
+                </h2>
+
+                <!-- Score Badge -->
+                <div class="bg-gradient-to-br from-red-500 to-red-700 text-white rounded-3xl p-6 my-4 max-w-sm mx-auto shadow-lg border-2 border-yellow-300">
+                    <span class="text-xs font-bold uppercase opacity-80">Nilai Akhir Kamu</span>
+                    <div id="finalScoreDisplay" class="text-5xl font-black font-mono my-1">100</div>
+                    <span id="gradeBadge" class="inline-block bg-yellow-400 text-red-950 text-xs font-extrabold px-3 py-1 rounded-full uppercase">Sangat Memuaskan (A)</span>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mb-6 text-center">
+                    <div class="bg-emerald-50 p-3 rounded-2xl border border-emerald-200">
+                        <span class="block text-[10px] font-bold text-emerald-600 uppercase">Benar</span>
+                        <span id="correctCount" class="text-xl font-black text-emerald-700 font-mono">0</span>
+                    </div>
+                    <div class="bg-rose-50 p-3 rounded-2xl border border-rose-200">
+                        <span class="block text-[10px] font-bold text-rose-600 uppercase">Salah</span>
+                        <span id="wrongCount" class="text-xl font-black text-rose-700 font-mono">0</span>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-2xl border border-blue-200">
+                        <span class="block text-[10px] font-bold text-blue-600 uppercase">Waktu</span>
+                        <span id="totalTimeDisplay" class="text-xl font-black text-blue-700 font-mono">00:00</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-3 justify-center mb-6">
+                    <button onclick="retryCurrentPackage()" class="bg-red-600 hover:bg-red-700 text-white font-extrabold px-5 py-2.5 rounded-2xl text-xs transition shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Ulangi Paket Ini
+                    </button>
+                    <button onclick="toggleReviewMode()" class="bg-slate-800 hover:bg-slate-900 text-white font-extrabold px-5 py-2.5 rounded-2xl text-xs transition shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-list-check"></i> <span id="reviewBtnText">Pembahasan Soal</span>
+                    </button>
+                    <button onclick="showScreen('homeScreen')" class="bg-yellow-400 hover:bg-yellow-500 text-red-950 font-extrabold px-5 py-2.5 rounded-2xl text-xs transition shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-house"></i> Pilih Paket Lain
+                    </button>
+                </div>
+
+                <!-- Comprehensive Review Breakdown (Toggled) -->
+                <div id="reviewContainer" class="hidden text-left border-t border-slate-200 pt-6 mt-6">
+                    <h4 class="font-extrabold text-slate-800 text-base font-header mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-file-signature text-red-600"></i> Detail Jawaban & Pembahasan
+                    </h4>
+                    <div id="reviewList" class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-2">
+                        <!-- Review items injected via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-4 text-center text-xs font-semibold border-t border-slate-800">
+        <p>Game Edukasi PKN Bab 1 Kelas 5 SD • Berdasarkan Kurikulum Merdeka</p>
+    </footer>
+
+    <!-- MODAL: Materi Rangkuman -->
+    <div id="materiModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 md:p-8 shadow-2xl border-4 border-yellow-400 max-h-[85vh] overflow-y-auto custom-scrollbar">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-100">
+                <h3 class="font-black text-slate-800 text-lg md:text-xl font-header flex items-center gap-2">
+                    <i class="fa-solid fa-book text-red-600"></i> Rangkuman Materi PKN Bab 1
+                </h3>
+                <button onclick="closeMateriModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4 text-xs md:text-sm text-slate-600 leading-relaxed">
+                <div class="bg-red-50 p-4 rounded-2xl border border-red-200">
+                    <h4 class="font-extrabold text-red-800 mb-1">1. BPUPK (Dokuritsu Junbi Cosakai)</h4>
+                    <p>Dibentuk oleh Jepang pada 1 Maret 1945 dipimpin Letnan Jenderal Kumakichi Harada. Diketuai Dr. K.R.T. Radjiman Wedyodiningrat dengan 67 anggota. Berlayar melakukan 2 kali sidang resmi untuk merumuskan dasar negara dan UUD.</p>
+                </div>
+
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                    <h4 class="font-extrabold text-amber-900 mb-1">2. Tokoh Perumus Dasar Negara</h4>
+                    <ul class="list-disc pl-5 space-y-1 text-amber-800">
+                        <li><b>Moh. Yamin (29 Mei 1945):</b> Peri Kebangsaan, Peri Kemanusiaan, Peri Ketuhanan, Peri Kerakyatan, Kesejahteraan Rakyat.</li>
+                        <li><b>Prof. Dr. Soepomo (31 Mei 1945):</b> Persatuan, Kekeluargaan, Keseimbangan lahir batin, Musyawarah, Keadilan sosial.</li>
+                        <li><b>Ir. Soekarno (1 Juni 1945):</b> Kebangsaan Indonesia, Internasionalisme, Demokrasi, Kesejahteraan sosial, Ketuhanan YME. (Dicetuskan nama "Pancasila").</li>
+                    </ul>
+                </div>
+
+                <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200">
+                    <h4 class="font-extrabold text-emerald-900 mb-1">3. Panitia Sembilan & PPKI</h4>
+                    <p>Panitia Sembilan merumuskan <b>Piagam Jakarta</b> pada 22 Juni 1945. PPKI dilantik 18 Agustus 1945 menetapkan UUD 1945, mengesahkan Pancasila, serta memilih Presiden Ir. Soekarno dan Wakil Presiden Moh. Hatta.</p>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-2xl border border-blue-200">
+                    <h4 class="font-extrabold text-blue-900 mb-1">4. Simbol Garuda Pancasila</h4>
+                    <p>17 helai bulu sayap, 8 helai ekor, 19 helai pangkal ekor, 45 helai leher (17 Agustus 1945). Lima lambang perisai: Bintang Emas (Sila 1), Rantai Emas (Sila 2), Pohon Beringin (Sila 3), Kepala Banteng (Sila 4), dan Padi Kapas (Sila 5).</p>
+                </div>
+            </div>
+
+            <button onclick="closeMateriModal()" class="mt-6 w-full bg-slate-800 hover:bg-slate-900 text-white font-extrabold py-3 rounded-2xl text-xs transition">
+                Tutup Rangkuman
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Global Audio Settings
+        let soundEnabled = true;
+        let synth, polySynth;
+
+        try {
+            synth = new Tone.Synth().toDestination();
+            polySynth = new Tone.PolySynth().toDestination();
+        } catch(e) {
+            console.log("Audio initialized without WebAudio context");
+        }
+
+        function playSFX(type) {
+            if (!soundEnabled) return;
+            try {
+                Tone.start();
+                if (type === 'click') synth.triggerAttackRelease("C5", "16n");
+                else if (type === 'correct') polySynth.triggerAttackRelease(["C5", "E5", "G5"], "8n");
+                else if (type === 'wrong') synth.triggerAttackRelease("F3", "8n");
+                else if (type === 'victory') polySynth.triggerAttackRelease(["C4", "E4", "G4", "C5"], "4n");
+            } catch(e){}
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const btn = document.getElementById('soundBtn');
+            btn.innerHTML = soundEnabled ? 
+                '<i class="fa-solid fa-volume-high"></i> <span class="hidden md:inline">Suara: ON</span>' : 
+                '<i class="fa-solid fa-volume-xmark"></i> <span class="hidden md:inline">Suara: OFF</span>';
+        }
+
+        // Master Question Bank (50 Questions based strictly on the uploaded text)
+        const allQuestions = [
+            // --- PACKAGE 1: BINTANG (Soal 1-50: Sejarah Pembentukan BPUPK) ---
+           
+               {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Tanggal berapakah yang diperingati sebagai Hari Lahir Pancasila oleh bangsa Indonesia?",
+        options: ["17 Agustus", "1 Juni", "18 Agustus", "22 Juni"],
+        ans: 1,
+        exp: "Tanggal 1 Juni diperingati sebagai Hari Lahir Pancasila merujuk pada momen pidato Ir. Soekarno dalam sidang BPUPK."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "BPUPK dibentuk oleh pemerintah Jepang. Dalam bahasa Jepang BPUPK dikenal dengan nama...",
+        options: ["Dokuritsu Junbi Inkai", "Dokuritsu Junbi Cosakai", "Heiho", "Taiko"],
+        ans: 1,
+        exp: "BPUPK dikenal dalam bahasa Jepang sebagai Dokuritsu Junbi Cosakai."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Siapakah pimpinan pemerintah pendudukan Jepang di Jawa yang mengumumkan pembentukan BPUPK pada 1 Maret 1945?",
+        options: ["Letnan Jenderal Kumakichi Harada", "Masuda Toyohiko", "Ichibangase Yosio", "General Terauchi"],
+        ans: 0,
+        exp: "Letnan Jenderal Kumakichi Harada mengumumkan pembentukan BPUPK pada 1 Maret 1945."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Siapa yang bertindak sebagai ketua BPUPK?",
+        options: ["Ir. Soekarno", "Drs. Mohammad Hatta", "Dr. K.R.T. Radjiman Wedyodiningrat", "Raden Pandji Soeroso"],
+        ans: 2,
+        exp: "BPUPK diketuai oleh Dr. K.R.T. Radjiman Wedyodiningrat."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Siapa wakil ketua BPUPK yang berasal dari pihak Jepang?",
+        options: ["Masuda Toyohiko", "Ichibangase Yosio", "Kumakichi Harada", "Kuroda"],
+        ans: 1,
+        exp: "Wakil ketua BPUPK dari pihak Jepang adalah Ichibangase Yosio."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Siapa wakil ketua BPUPK dari pihak Indonesia yang juga memimpin Badan Tata Usaha?",
+        options: ["Mr. Abdoel Gafar Pringgodigdo", "Raden Pandji Soeroso", "Mohammad Yamin", "Soepomo"],
+        ans: 1,
+        exp: "Raden Pandji Soeroso menjabat wakil ketua BPUPK sekaligus memimpin Badan Tata Usaha."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Berapa jumlah anggota BPUPK?",
+        options: ["21 orang", "27 orang", "67 orang", "38 orang"],
+        ans: 2,
+        exp: "BPUPK beranggotakan 67 orang."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Berapa kali BPUPK melaksanakan sidang resmi selama masa tugasnya?",
+        options: ["1 kali", "2 kali", "3 kali", "4 kali"],
+        ans: 1,
+        exp: "BPUPK melaksanakan sidang resmi sebanyak 2 kali."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Kapan sidang pertama BPUPK dilaksanakan?",
+        options: ["10 Juli - 17 Juli 1945", "29 Mei - 1 Juni 1945", "18 Agustus 1945", "22 Juni 1945"],
+        ans: 1,
+        exp: "Sidang pertama BPUPK dilaksanakan pada tanggal 29 Mei - 1 Juni 1945."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Kapan sidang kedua BPUPK dilaksanakan?",
+        options: ["29 Mei - 1 Juni 1945", "10 Juli - 17 Juli 1945", "18 Agustus 1945", "7 Agustus 1945"],
+        ans: 1,
+        exp: "Sidang kedua BPUPK dilaksanakan pada tanggal 10 Juli - 17 Juli 1945."
+    },
+    {
+        pkg: 1,
+        cat: "BPUPK",
+        q: "Pada tanggal berapa BPUPK dibubarkan oleh pemerintah Jepang?",
+        options: ["17 Agustus 1945", "18 Agustus 1945", "7 Agustus 1945", "22 Juni 1945"],
+        ans: 2,
+        exp: "BPUPK dibubarkan pada tanggal 7 Agustus 1945 karena tugasnya telah selesai."
+    },
+    {
+        pkg: 1,
+        cat: "Perumusan Pancasila",
+        q: "Tokoh yang menyampaikan rumusan asas dasar negara pada tanggal 29 Mei 1945 adalah...",
+        options: ["Ir. Soekarno", "Prof. Dr. Soepomo", "Prof. Mohammad Yamin, S.H.", "Drs. Mohammad Hatta"],
+        ans: 2,
+        exp: "Mohammad Yamin mengemukakan usulan dasar negara pada 29 Mei 1945."
+    },
+    {
+        pkg: 1,
+        cat: "Perumusan Pancasila",
+        q: "Berikut ini yang termasuk dalam rumusan lisan dasar negara oleh Moh. Yamin adalah...",
+        options: ["Persatuan", "Peri Kebangsaan", "Kekeluargaan", "Internasionalisme"],
+        ans: 1,
+        exp: "Rumusan lisan Moh. Yamin meliputi Peri Kebangsaan, Peri Kemanusiaan, Peri Ketuhanan, Peri Kerakyatan, dan Kesejahteraan Rakyat."
+    },
+    {
+        pkg: 1,
+        cat: "Perumusan Pancasila",
+        q: "Prof. Dr. Soepomo menyampaikan rumusan dasar negara pada tanggal...",
+        options: ["29 Mei 1945", "31 Mei 1945", "1 Juni 1945", "22 Juni 1945"],
+        ans: 1,
+        exp: "Soepomo mengemukakan gagasannya pada sidang BPUPK tanggal 31 Mei 1945."
+    },
+    {
+        pkg: 1,
+        cat: "Perumusan Pancasila",
+        q: "Prinsip dasar negara yang diusulkan oleh Soepomo adalah...",
+        options: ["Persatuan, Kekeluargaan, Keseimbangan lahir batin, Musyawarah, Keadilan sosial", "Peri kebangsaan, Peri kemanusiaan, Peri ketuhanan, Peri kerakyatan, Kesejahteraan rakyat", "Kebangsaan Indonesia, Internasionalisme, Mufakat, Kesejahteraan sosial, Ketuhanan", "Ketuhanan, Kemanusiaan, Persatuan, Demokrasi, Keadilan"],
+        ans: 0,
+        exp: "Rumusan Prof. Dr. Soepomo terdiri dari Persatuan, Kekeluargaan, Keseimbangan lahir batin, Musyawarah, dan Keadilan sosial."
+    },
+    {
+        pkg: 1,
+        cat: "Perumusan Pancasila",
+        q: "Siapa yang mengusulkan nama Pancasila untuk lima sila dasar negara pada 1 Juni 1945?",
+        options: ["Mohammad Yamin", "Soepomo", "Ir. Soekarno", "Mohammad Hatta"],
+        ans: 2,
+        exp: "Ir. Soekarno mengusulkan nama Pancasila pada pidatonya tanggal 1 Juni 1945."
+    },
+    {
+        pkg: 1,
+        cat: "Panitia Sembilan",
+        q: "Berapa jumlah anggota Panitia Sembilan?",
+        options: ["7 orang", "9 orang", "19 orang", "38 orang"],
+        ans: 1,
+        exp: "Panitia Sembilan beranggotakan 9 orang tokoh bangsa."
+    },
+    {
+        pkg: 1,
+        cat: "Panitia Sembilan",
+        q: "Siapakah ketua dari Panitia Sembilan?",
+        options: ["Drs. Mohammad Hatta", "Ir. Soekarno", "Mr. A.A. Maramis", "K.H. Wahid Hasjim"],
+        ans: 1,
+        exp: "Panitia Sembilan diketuai oleh Ir. Soekarno."
+    },
+    {
+        pkg: 1,
+        cat: "Panitia Sembilan",
+        q: "Hasil keputusan rumusan dasar negara oleh Panitia Sembilan pada 22 Juni 1945 dinamakan...",
+        options: ["Piagam Bandung", "Piagam Jakarta", "Dekrit Presiden", "Proklamasi"],
+        ans: 1,
+        exp: "Pertemuan Panitia Sembilan pada 22 Juni 1945 menghasilkan Piagam Jakarta."
+    },
+    {
+        pkg: 1,
+        cat: "Panitia Sembilan",
+        q: "Sila pertama dalam Piagam Jakarta berbunyi...",
+        options: ["Ketuhanan Yang Maha Esa", "Ketuhanan dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya", "Kemanusiaan yang adil dan beradab", "Persatuan Indonesia"],
+        ans: 1,
+        exp: "Sila ke-1 Piagam Jakarta memuat klausal 'dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya'."
+    },
+    {
+        pkg: 1,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia Perancang UUD yang dibentuk pada sidang kedua BPUPK diketuai oleh...",
+        options: ["Mohammad Hatta", "Abikoesno Tjokrosoejoso", "Ir. Soekarno", "Prof. Dr. Soepomo"],
+        ans: 2,
+        exp: "Panitia Perancang UUD beranggotakan 19 orang diketuai oleh Ir. Soekarno."
+    },
+    {
+        pkg: 1,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia Ekonomi dan Keuangan dalam sidang BPUPK diketuai oleh...",
+        options: ["Ir. Soekarno", "Drs. Mohammad Hatta", "Abikoesno Tjokrosoejoso", "A.A. Maramis"],
+        ans: 1,
+        exp: "Panitia Ekonomi dan Keuangan diketuai oleh Drs. Mohammad Hatta."
+    },
+    {
+        pkg: 1,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia Pembelaan Tanah Air diketuai oleh...",
+        options: ["Abikoesno Tjokrosoejoso", "Radjiman Wedyodiningrat", "Soepomo", "Agus Salim"],
+        ans: 0,
+        exp: "Panitia Pembelaan Tanah Air diketuai oleh Abikoesno Tjokrosoejoso."
+    },
+    {
+        pkg: 1,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia kecil Perancang UUD yang beranggotakan 7 orang diketuai oleh...",
+        options: ["Ir. Soekarno", "Prof. Dr. Mr. Soepomo", "Mr. Wongsonegoro", "H. Agus Salim"],
+        ans: 1,
+        exp: "Panitia kecil Perancang UUD beranggotakan 7 orang diketuai oleh Prof. Dr. Mr. Soepomo."
+    },
+    {
+        pkg: 1,
+        cat: "PPKI",
+        q: "PPKI merupakan singkatan dari...",
+        options: ["Panitia Persiapan Kemerdekaan Indonesia", "Panitia Penyelidik Kemerdekaan Indonesia", "Perkumpulan Persiapan Kemerdekaan Indonesia", "Persatuan Pelaksana Kemerdekaan Indonesia"],
+        ans: 0,
+        exp: "PPKI adalah Panitia Persiapan Kemerdekaan Indonesia."
+    },
+    {
+        pkg: 1,
+        cat: "PPKI",
+        q: "Dalam bahasa Jepang, PPKI dikenal dengan nama...",
+        options: ["Dokuritsu Junbi Cosakai", "Dokuritsu Junbi Inkai", "Heiho", "Gunitai"],
+        ans: 1,
+        exp: "PPKI dalam bahasa Jepang adalah Dokuritsu Junbi Inkai."
+    },
+    {
+        pkg: 1,
+        cat: "PPKI",
+        q: "Berapa jumlah anggota awal PPKI yang dibentuk Jepang?",
+        options: ["12 orang", "21 orang", "27 orang", "67 orang"],
+        ans: 1,
+        exp: "Anggota awal PPKI berjumlah 21 orang."
+    },
+    {
+        pkg: 1,
+        cat: "PPKI",
+        q: "Ir. Soekarno menambah anggota PPKI tanpa sepengetahuan Jepang sebanyak...",
+        options: ["5 orang", "6 orang", "7 orang", "9 orang"],
+        ans: 1,
+        exp: "Soekarno menambah 6 anggota baru tanpa sepengetahuan Jepang sehingga totalnya menjadi 27 orang."
+    },
+    {
+        pkg: 1,
+        cat: "PPKI",
+        q: "Pada tanggal berapakah sidang PPKI dilaksanakan untuk mengesahkan Pancasila dan UUD 1945?",
+        options: ["17 Agustus 1945", "18 Agustus 1945", "19 Agustus 1945", "22 Juni 1945"],
+        ans: 1,
+        exp: "PPKI meresmikan/mengesahkan Pancasila dan UUD 1945 pada tanggal 18 Agustus 1945."
+    },
+    {
+        pkg: 1,
+        cat: "Garuda Pancasila",
+        q: "Secara etimologis, kata 'Pancasila' berasal dari bahasa...",
+        options: ["Jawa", "Sanskerta", "Pali", "Melayu"],
+        ans: 1,
+        exp: "Pancasila berasal dari bahasa Sanskerta (panca = lima, syla = batu sendi/alas)."
+    },
+    {
+        pkg: 1,
+        cat: "Garuda Pancasila",
+        q: "Para ahli sejarah sepakat bahwa wujud burung Garuda pada lambang negara terinspirasi dari...",
+        options: ["Burung Merpati", "Burung Rajawali", "Burung Elang Jawa", "Burung Cendrawasih"],
+        ans: 2,
+        exp: "Garuda Pancasila terinspirasi dari burung Elang Jawa."
+    },
+    {
+        pkg: 1,
+        cat: "Garuda Pancasila",
+        q: "Berapa jumlah bulu pada masing-masing sayap Garuda Pancasila?",
+        options: ["8 helai", "17 helai", "19 helai", "45 helai"],
+        ans: 1,
+        exp: "Sayap Garuda memiliki 17 helai bulu yang melambangkan tanggal kemerdekaan."
+    },
+    {
+        pkg: 1,
+        cat: "Garuda Pancasila",
+        q: "Jumlah bulu pada ekor Garuda Pancasila adalah...",
+        options: ["8 helai", "17 helai", "19 helai", "45 helai"],
+        ans: 0,
+        exp: "Ekor Garuda berjumlah 8 helai bulu, melambangkan bulan Agustus (bulan 8)."
+    },
+    {
+        pkg: 1,
+        cat: "Garuda Pancasila",
+        q: "Bulu pada pangkal ekor Garuda Pancasila berjumlah...",
+        options: ["8 helai", "17 helai", "19 helai", "45 helai"],
+        ans: 2,
+        exp: "Pangkal ekor berjumlah 19 helai bulu."
+    },
+    {
+        pkg: 1,
+        cat: "Garuda Pancasila",
+        q: "Bulu pada leher Garuda Pancasila berjumlah...",
+        options: ["17 helai", "19 helai", "45 helai", "50 helai"],
+        ans: 2,
+        exp: "Bulu leher Garuda berjumlah 45 helai, melambangkan tahun 1945."
+    },
+    {
+        pkg: 1,
+        cat: "Garuda Pancasila",
+        q: "Garis melintang tebal di tengah perisai Garuda melambangkan...",
+        options: ["Garis khatulistiwa", "Batas wilayah laut", "Garis bujur", "Jalan raya nasional"],
+        ans: 0,
+        exp: "Garis melintang melambangkan garis khatulistiwa yang membelah kepulauan Indonesia."
+    },
+    {
+        pkg: 1,
+        cat: "Lambang Sila",
+        q: "Simbol sila pertama Pancasila adalah...",
+        options: ["Rantai", "Pohon Beringin", "Bintang", "Kepala Banteng"],
+        ans: 2,
+        exp: "Sila ke-1 dilambangkan oleh Bintang keemasan."
+    },
+    {
+        pkg: 1,
+        cat: "Lambang Sila",
+        q: "Warna dasar pada lambang bintang sila pertama adalah...",
+        options: ["Merah", "Putih", "Hitam", "Kuning"],
+        ans: 2,
+        exp: "Warna dasar lambang bintang adalah hitam, bermakna bahwa Indonesia selalu dalam lindungan Tuhan."
+    },
+    {
+        pkg: 1,
+        cat: "Lambang Sila",
+        q: "Pada simbol rantai sila kedua, mata rantai berbentuk persegi melambangkan...",
+        options: ["Perempuan", "Laki-laki", "Anak-anak", "Lanjut usia"],
+        ans: 1,
+        exp: "Rantai persegi melambangkan laki-laki, sedangkan rantai bulat melambangkan perempuan."
+    },
+    {
+        pkg: 1,
+        cat: "Lambang Sila",
+        q: "Pohon beringin menjadi lambang sila ke-3. Akar menjalar pada pohon beringin mencerminkan...",
+        options: ["Kekuatan", "Keberagaman di Indonesia", "Kesucian", "Keberanian"],
+        ans: 1,
+        exp: "Akar menjalar mencerminkan keberagaman suku, budaya, dan ras di Indonesia."
+    },
+    {
+        pkg: 1,
+        cat: "Lambang Sila",
+        q: "Banteng dijadikan lambang sila keempat karena dikenal sebagai hewan yang...",
+        options: ["Suka menyendiri", "Memiliki kekuatan besar dan suka berkumpul", "Lambat tapi pasti", "Sangat jinak"],
+        ans: 1,
+        exp: "Banteng adalah hewan sosial yang kuat dan suka berkumpul/bermusyawarah."
+    },
+    {
+        pkg: 1,
+        cat: "Lambang Sila",
+        q: "Tanaman padi pada lambang sila kelima melambangkan kebutuhan...",
+        options: ["Sandang", "Pangan", "Papan", "Kesehatan"],
+        ans: 1,
+        exp: "Padi menghasilkan beras yang merupakan kebutuhan pangan utama."
+    },
+    {
+        pkg: 1,
+        cat: "Lambang Sila",
+        q: "Kapas pada lambang sila kelima melambangkan kebutuhan...",
+        options: ["Pangan", "Sandang", "Papan", "Pendidikan"],
+        ans: 1,
+        exp: "Kapas adalah bahan utama pembuatan pakaian (sandang)."
+    },
+    {
+        pkg: 1,
+        cat: "Nilai Juang",
+        q: "Sikap mengorbankan waktu, tenaga, dan pikiran demi kepentingan bangsa dinamakan...",
+        options: ["Musyawarah", "Rela berkorban", "Tanpa pamrih", "Toleransi"],
+        ans: 1,
+        exp: "Rela berkorban adalah bersedia mengorbankan kepentingan pribadi demi bangsa dan negara."
+    },
+    {
+        pkg: 1,
+        cat: "Nilai Juang",
+        q: "Kata 'musyawarah' berasal dari bahasa Arab 'syawara' yang artinya...",
+        options: ["Memaksa kehendak", "Berunding atau urun rembuk", "Mengalah", "Bertengkar"],
+        ans: 1,
+        exp: "Syawara berarti berunding, urun rembuk, atau mengatakan sesuatu."
+    },
+    {
+        pkg: 1,
+        cat: "Penerapan Sila 1",
+        q: "Contoh pengamalan sila pertama di lingkungan sekolah adalah...",
+        options: ["Menghormati teman yang sedang beribadah", "Melaksanakan piket bersama", "Melakukan voting ketua kelas", "Menolong teman yang jatuh"],
+        ans: 0,
+        exp: "Menghormati teman yang beribadah merupakan wujud toleransi beragama (Sila 1)."
+    },
+    {
+        pkg: 1,
+        cat: "Penerapan Sila 2",
+        q: "Mengakui persamaan derajat, hak, dan kewajiban sesama manusia merupakan penerapan sila ke...",
+        options: ["Satu", "Dua", "Tiga", "Empat"],
+        ans: 1,
+        exp: "Persamaan derajat dan hak asasi manusia adalah inti nilai sila ke-2."
+    },
+    {
+        pkg: 1,
+        cat: "Penerapan Sila 3",
+        q: "Menggunakan dan bangga terhadap produk-produk lokal buatan dalam negeri merupakan bentuk pengamalan sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 1,
+        exp: "Cinta produk lokal merupakan wujud rasa cinta tanah air (Sila 3)."
+    },
+    {
+        pkg: 1,
+        cat: "Penerapan Sila 4",
+        q: "Mengutamakan musyawarah untuk mencapai mufakat dalam menyelesaikan masalah merupakan nilai sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 2,
+        exp: "Musyawarah mufakat adalah ciri utama penerapan sila ke-4."
+    },
+    {
+        pkg: 1,
+        cat: "Penerapan Sila 5",
+        q: "Menjaga keseimbangan antara hak dan kewajiban serta tidak bergaya hidup mewah adalah butir sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 3,
+        exp: "Sikap tidak memboroskan uang dan adil terhadap hak/kewajiban sesuai sila ke-5."
+    },
+
+            // --- PACKAGE 2: RANTAI (Soal 1-50: Tokoh Perumus Dasar Negara) ---
+    {
+        pkg: 2,
+        cat: "BPUPK",
+        q: "Kota-kota di Indonesia yang mengalami serangan udara oleh pasukan sekutu pada masa pendudukan Jepang adalah...",
+        options: ["Jakarta, Bandung, Bogor", "Ambon, Makassar, Manado, Surabaya", "Medan, Palembang, Padang", "Yogyakarta, Solo, Semarang"],
+        ans: 1,
+        exp: "Jepang mengalami serangan udara sekutu di Kota Ambon, Makassar, Manado, dan Surabaya."
+    },
+    {
+        pkg: 2,
+        cat: "BPUPK",
+        q: "Daerah penghasil minyak di Indonesia tempat mendaratnya pasukan sekutu adalah...",
+        options: ["Tarakan dan Balikpapan", "Cirebon dan Cilacap", "Batam dan Natuna", "Palembang dan Dumai"],
+        ans: 0,
+        exp: "Pasukan sekutu mendarat di daerah minyak Tarakan dan Balikpapan."
+    },
+    {
+        pkg: 2,
+        cat: "BPUPK",
+        q: "Siapa nama pejabat Jepang yang menjabat sebagai wakil pimpinan Badan Tata Usaha BPUPK?",
+        options: ["Ichibangase Yosio", "Masuda Toyohiko", "Kumakichi Harada", "Yamamoto"],
+        ans: 1,
+        exp: "Badan Tata Usaha dibantu oleh Masuda Toyohiko dan Mr. A.G. Pringgodigdo."
+    },
+    {
+        pkg: 2,
+        cat: "BPUPK",
+        q: "Berapa jumlah anggota Badan Tata Usaha BPUPK?",
+        options: ["21 orang", "38 orang", "60 orang", "67 orang"],
+        ans: 2,
+        exp: "Badan Tata Usaha BPUPK beranggotakan 60 orang."
+    },
+    {
+        pkg: 2,
+        cat: "BPUPK",
+        q: "Tugas utama dari dibentuknya BPUPK adalah...",
+        options: ["Menyerang pasukan sekutu", "Mempelajari, menyelidiki, dan mempersiapkan hal-hal terkait pembentukan negara Indonesia merdeka", "Menyusun teks proklamasi saja", "Memilih Presiden dan Wakil Presiden"],
+        ans: 1,
+        exp: "Tugas utama BPUPK adalah mempelajari dan menyelidiki aspek politik, ekonomi, dan pemerintahan bagi Indonesia merdeka."
+    },
+    {
+        pkg: 2,
+        cat: "Perumusan Pancasila",
+        q: "Kedudukan Pancasila sebagai sumber dari segala sumber hukum negara diatur dalam...",
+        options: ["Pasal 2 UU No. 12 Tahun 2011", "Pasal 1 UUD 1945", "Ketetapan MPR No. 1", "Pasal 33 UUD 1945"],
+        ans: 0,
+        exp: "Kedudukan Pancasila diatur dalam Pasal 2 UU No. 12/2011 tentang Pembentukan Peraturan Perundang-undangan."
+    },
+    {
+        pkg: 2,
+        cat: "Perumusan Pancasila",
+        q: "Gagasan tertulis Moh. Yamin tentang rumusan dasar negara sila ke-2 berbunyi...",
+        options: ["Peri kemanusiaan", "Rasa kemanusiaan yang adil dan beradab", "Internasionalisme", "Kemanusiaan yang adil dan beradab"],
+        ans: 1,
+        exp: "Secara tertulis Moh. Yamin mengajukan: Rasa kemanusiaan yang adil dan beradab."
+    },
+    {
+        pkg: 2,
+        cat: "Perumusan Pancasila",
+        q: "Berikut adalah usulan dasar negara Soepomo pada 31 Mei 1945, kecuali...",
+        options: ["Persatuan", "Kekeluargaan", "Peri Kebangsaan", "Musyawarah"],
+        ans: 2,
+        exp: "Peri Kebangsaan adalah usulan dari Mohammad Yamin."
+    },
+    {
+        pkg: 2,
+        cat: "Perumusan Pancasila",
+        q: "Berikut adalah susunan lima sila usulan Ir. Soekarno pada 1 Juni 1945, kecuali...",
+        options: ["Kebangsaan Indonesia", "Internasionalisme atau peri kemanusiaan", "Keseimbangan lahir batin", "Mufakat atau demokrasi"],
+        ans: 2,
+        exp: "Keseimbangan lahir batin merupakan usulan Prof. Dr. Soepomo."
+    },
+    {
+        pkg: 2,
+        cat: "Panitia Sembilan",
+        q: "Berapa jumlah anggota Panitia Kecil yang dibentuk setelah sidang pertama BPUPK?",
+        options: ["7 orang", "9 orang", "19 orang", "38 orang"],
+        ans: 3,
+        exp: "Panitia kecil yang dibentuk ketua BPUPK berjumlah 38 orang sebelum ditunjuk Panitia Sembilan."
+    },
+    {
+        pkg: 2,
+        cat: "Panitia Sembilan",
+        q: "Perbedaan pandangan utama pada Panitia Kecil adalah antara...",
+        options: ["Golongan Jawa dan luar Jawa", "Golongan Islam dan Golongan Kebangsaan", "Golongan Muda dan Golongan Tua", "Pihak Jepang dan Indonesia"],
+        ans: 1,
+        exp: "Satu pihak menginginkan Islam sebagai dasar negara, pihak lain menginginkan paham kebangsaan."
+    },
+    {
+        pkg: 2,
+        cat: "Panitia Sembilan",
+        q: "Siapa wakil ketua Panitia Sembilan?",
+        options: ["Ir. Soekarno", "Drs. Mohammad Hatta", "Mr. A.A. Maramis", "Haji Agus Salim"],
+        ans: 1,
+        exp: "Wakil ketua Panitia Sembilan adalah Drs. Mohammad Hatta."
+    },
+    {
+        pkg: 2,
+        cat: "Panitia Sembilan",
+        q: "Berikut yang TIDAK termasuk anggota Panitia Sembilan adalah...",
+        options: ["K.H. Wahid Hasjim", "Mr. A.A. Maramis", "Prof. Dr. Soepomo", "Abdoel Kahar Moezakir"],
+        ans: 2,
+        exp: "Prof. Dr. Soepomo bukan anggota Panitia Sembilan."
+    },
+    {
+        pkg: 2,
+        cat: "Panitia Sembilan",
+        q: "Tokoh yang sempat mengajukan keberatan terhadap rumusan sila ke-1 dalam Piagam Jakarta adalah...",
+        options: ["Latuharhary", "Soekarno", "Moh. Yamin", "K.H. Wahid Hasjim"],
+        ans: 0,
+        exp: "Latuharhary mengajukan keberatan dan didukung Wongsonegoro serta Husin Joyodiningrat."
+    },
+    {
+        pkg: 2,
+        cat: "Sidang BPUPK Kedua",
+        q: "Berikut ini merupakan agenda pembahasan pada sidang kedua BPUPK, kecuali...",
+        options: ["Rancangan UUD", "Bentuk negara dan wilayah negara", "Pernyataan merdeka", "Pemilihan Presiden dan Wakil Presiden"],
+        ans: 3,
+        exp: "Pemilihan Presiden dan Wakil Presiden dilakukan pada sidang PPKI 18 Agustus 1945."
+    },
+    {
+        pkg: 2,
+        cat: "Sidang BPUPK Kedua",
+        q: "Tiga hal pokok yang harus masuk ke dalam UUD 1945 berdasarkan hasil rapat BPUPK adalah...",
+        options: ["Pernyataan Indonesia merdeka, Pembukaan UUD, dan Batang Tubuh UUD", "Pancasila, Teks Proklamasi, dan Bendera", "Sistem ekonomi, Tentara, dan Presiden", "Aturan peralihan, Aturan tambahan, dan Penjelasan"],
+        ans: 0,
+        exp: "Tiga hal pokok tersebut adalah Pernyataan Indonesia Merdeka, Pembukaan UUD, dan Batang Tubuh UUD."
+    },
+    {
+        pkg: 2,
+        cat: "PPKI",
+        q: "Peristiwa penting di Jepang yang memicu kekalahan Jepang dari sekutu adalah pgeboman kota...",
+        options: ["Tokyo dan Kyoto", "Hiroshima dan Nagasaki", "Osaka dan Nagoya", "Okinawa dan Sapporo"],
+        ans: 1,
+        exp: "Sekutu menjatuhkan bom atom di Hiroshima dan Nagasaki."
+    },
+    {
+        pkg: 2,
+        cat: "PPKI",
+        q: "Komposisi 21 anggota PPKI bentukan Jepang terdiri dari wakil daerah berikut, kecuali...",
+        options: ["12 Jawa, 3 Sumatra", "2 Sulawesi, 1 Kalimantan", "1 Nusa Tenggara, 1 Maluku, 1 Peranakan Tionghoa", "5 Papua, 5 Bali"],
+        ans: 3,
+        exp: "Komposisi PPKI: 12 Jawa, 3 Sumatra, 2 Sulawesi, 1 Kalimantan, 1 Nusa Tenggara, 1 Maluku, 1 Peranakan Tionghoa."
+    },
+    {
+        pkg: 2,
+        cat: "PPKI",
+        q: "Berikut ini 3 hasil sidang PPKI pada tanggal 18 Agustus 1945, KECUALI...",
+        options: ["Menetapkan UUD NRI Tahun 1945", "Memilih Presiden dan Wakil Presiden", "Membentuk Komite Nasional", "Membentuk Panitia Sembilan"],
+        ans: 3,
+        exp: "Panitia Sembilan dibentuk saat masa antara sidang BPUPK pertama dan kedua, bukan oleh PPKI."
+    },
+    {
+        pkg: 2,
+        cat: "Garuda Pancasila",
+        q: "Semboyan yang dicengkeram oleh kaki Burung Garuda adalah...",
+        options: ["Tut Wuri Handayani", "Bhinneka Tunggal Ika", "Bersatu Kita Teguh", "Ing Ngarso Sung Tulodho"],
+        ans: 1,
+        exp: "Semboyan pada pita Garuda adalah Bhinneka Tunggal Ika."
+    },
+    {
+        pkg: 2,
+        cat: "Garuda Pancasila",
+        q: "Warna pokok dari burung Garuda pada lambang negara adalah...",
+        options: ["Kuning Emas", "Perak", "Merah Putih", "Cokelat"],
+        ans: 0,
+        exp: "Warna pokok Garuda adalah kuning emas yang melambangkan keagungan."
+    },
+    {
+        pkg: 2,
+        cat: "Garuda Pancasila",
+        q: "Perisai pada dada burung Garuda melambangkan...",
+        options: ["Kekayaan alam", "Perjuangan dan perlindungan", "Kecantikan seni", "Keberagaman suku"],
+        ans: 1,
+        exp: "Perisai melambangkan perjuangan dan perlindungan diri di medan perang."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Lambang bintang emas pada sila ke-1 terletak di bagian...",
+        options: ["Pojok kanan atas", "Pojok kiri atas", "Tengah perisai", "Pojok kanan bawah"],
+        ans: 2,
+        exp: "Bintang emas terletak tepat di bagian tengah perisai."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Makna warna emas pada bintang sila pertama adalah...",
+        options: ["Cahaya yang menyinari kehidupan", "Keberanian bangsa", "Kesucian hati", "Perjuangan tanpa henti"],
+        ans: 0,
+        exp: "Warna keemasan melambangkan cahaya yang menyinari kehidupan."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Mata rantai berbentuk bulat pada lambang sila ke-2 melambangkan...",
+        options: ["Laki-laki", "Perempuan", "Anak-anak", "Persatuan"],
+        ans: 1,
+        exp: "Rantai bulat melambangkan perempuan."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Warna dasar pada simbol sila kedua (rantai) adalah...",
+        options: ["Hitam", "Merah", "Putih", "Kuning"],
+        ans: 1,
+        exp: "Rantai emas terletak pada perisai berlatar warna merah."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Pohon beringin yang besar pada sila ke-3 melambangkan...",
+        options: ["Keberanian", "Tempat berteduh dan naungan aman", "Makanan pokok", "Keagungan"],
+        ans: 1,
+        exp: "Pohon beringin besar melambangkan tempat berteduh dan naungan bagi seluruh rakyat."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Akar tunggang yang kuat pada pohon beringin melambangkan...",
+        options: ["Keberagaman", "Kekuatan dan persatuan bangsa", "Kesucian", "Demokrasi"],
+        ans: 1,
+        exp: "Akar tunggang yang masuk dalam ke tanah melambangkan kekuatan dan persatuan."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Warna dasar pada simbol sila ketiga (pohon beringin) adalah...",
+        options: ["Merah", "Putih", "Hitam", "Hijau"],
+        ans: 1,
+        exp: "Warna dasar pada lambang sila ke-3 adalah putih."
+    },
+    {
+        pkg: 2,
+        cat: "Lambang Sila",
+        q: "Indonesia dikenal sebagai negara agraris, hal ini sangat selaras dengan simbol sila ke-5 yaitu...",
+        options: ["Bintang", "Rantai", "Banteng", "Padi"],
+        ans: 3,
+        exp: "Padi melambangkan sektor pertanian/agraris sebagai sumber pangan."
+    },
+    {
+        pkg: 2,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila dijadikan pedoman oleh masyarakat Indonesia dalam menjalankan kehidupan sehari-hari, hal ini menunjukkan fungsi Pancasila sebagai...",
+        options: ["Dasar Negara", "Ideologi / Pandangan Hidup Negara", "Perjanjian Luhur", "Semboyan Negara"],
+        ans: 1,
+        exp: "Pancasila sebagai ideologi dan pandangan hidup berfungsi sebagai pedoman hidup sehari-hari."
+    },
+    {
+        pkg: 2,
+        cat: "Nilai Juang",
+        q: "Sikap tidak mencari keuntungan pribadi atau imbalan saat berjuang demi bangsa dinamakan...",
+        options: ["Musyawarah", "Tanpa pamrih", "Toleransi", "Persatuan"],
+        ans: 1,
+        exp: "Tanpa pamrih berarti berjuang secara ikhlas tanpa mengharapkan keuntungan/imbalan."
+    },
+    {
+        pkg: 2,
+        cat: "Nilai Juang",
+        q: "Ketika tiga tokoh merumuskan usulan dasar negara yang berbeda, para pendiri bangsa saling mendengarkan dan tidak menyela. Ini mencerminkan sikap...",
+        options: ["Menghargai pendapat", "Rela berkorban", "Tanpa pamrih", "Sombong"],
+        ans: 0,
+        exp: "Mendengarkan pendapat orang lain tanpa menyela adalah wujud nilai menghargai pendapat."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 1",
+        q: "Disiplin dan taat menjalankan ibadah di rumah merupakan contoh pengamalan sila ke-1 di lingkungan...",
+        options: ["Sekolah", "Masyarakat", "Keluarga", "Negara"],
+        ans: 2,
+        exp: "Ibadah disiplin di rumah adalah contoh penerapan sila ke-1 di lingkungan keluarga."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 1",
+        q: "Sikap tidak memaksakan suatu agama kepada orang lain merupakan salah satu butir pengamalan sila...",
+        options: ["Pertama", "Kedua", "Ketiga", "Keempat"],
+        ans: 0,
+        exp: "Bebas memilih dan tidak memaksakan agama adalah butir sila ke-1."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 2",
+        q: "Menolong anggota keluarga yang sedang mengalami kesusahan merupakan pengamalan sila ke-2 di lingkungan...",
+        options: ["Sekolah", "Keluarga", "Masyarakat", "Berbangsa"],
+        ans: 1,
+        exp: "Saling menolong antaranggota keluarga adalah pengamalan sila ke-2 di rumah."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 2",
+        q: "Sikap tepa salira dan tenggang rasa terhadap orang lain sesuai dengan nilai sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 1,
+        exp: "Tepasalira dan tenggang rasa adalah bagian dari nilai kemanusiaan (Sila 2)."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 3",
+        q: "Menjaga kerukunan dan kekompakan dengan teman di kelas adalah pengamalan sila ke-3 di lingkungan...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Pasar"],
+        ans: 1,
+        exp: "Kerukunan dengan teman sekolah adalah wujud penerapan sila ke-3 di sekolah."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 3",
+        q: "Mampu menempatkan persatuan dan keselamatan bangsa di atas kepentingan pribadi/golongan adalah butir sila ke...",
+        options: ["1", "2", "3", "4"],
+        ans: 2,
+        exp: "Mengutamakan kepentingan bangsa di atas kepentingan pribadi adalah inti sila ke-3."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 4",
+        q: "Memilih ketua kelas melalui proses voting/pemungutan suara di sekolah adalah penerapan sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 2,
+        exp: "Voting/pemilihan adalah wujud demokrasi dan musyawarah (Sila 4)."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 4",
+        q: "Menerima dan melaksanakan hasil musyawarah dengan iktikad baik dan rasa tanggung jawab merupakan pengamalan sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 3,
+        exp: "Menjalankan keputusan musyawarah dengan iktikad baik adalah penerapan sila ke-4."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 5",
+        q: "Bekerja sama dalam membersihkan kelas dan lingkungan sekolah merupakan contoh sila ke-5 di sekolah karena mencerminkan...",
+        options: ["Sikap keberanian", "Sikap gotong royong dan adil membagi tugas", "Kebebasan berpendapat", "Ketakwaan"],
+        ans: 1,
+        exp: "Gotong royong dan pembagian tugas yang adil di sekolah sesuai dengan sila ke-5."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 5",
+        q: "Suka memberikan pertolongan kepada orang lain dan tidak melakukan pemerasan adalah butir sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 3,
+        exp: "Suka menolong dan tidak memeras adalah pengamalan butir sila ke-5."
+    },
+    {
+        pkg: 2,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila sebagai 'sumber dari segala sumber hukum' berarti...",
+        options: ["Semua peraturan hukum di Indonesia tidak boleh bertentangan dengan Pancasila", "Hanya berlaku untuk presiden", "Hukum dibuat tanpa dasar", "Hukum hanya diambil dari negara luar"],
+        ans: 0,
+        exp: "Seluruh peraturan perundang-undangan di Indonesia harus bersumber dan selaras dengan Pancasila."
+    },
+    {
+        pkg: 2,
+        cat: "Membiasakan Perilaku",
+        q: "Tujuan utama dari pengamalan nilai Pancasila dalam kehidupan sehari-hari adalah...",
+        options: ["Mendapatkan hadiah dari pemerintah", "Mempertahankan Negara Kesatuan Republik Indonesia", "Dipuji oleh negara tetangga", "Menghilangkan keragaman budaya"],
+        ans: 1,
+        exp: "Pengamalan Pancasila bertujuan untuk mempertahankan Pancasila dan keutuhan NKRI."
+    },
+    {
+        pkg: 2,
+        cat: "Membiasakan Perilaku",
+        q: "Apabila ada pihak yang ingin mengganti dasar negara Pancasila, hal tersebut dianggap sebagai...",
+        options: ["Hal yang wajar", "Ancaman terhadap kedaulatan negara", "Bentuk kebebasan berpendapat", "Kemajuan zaman"],
+        ans: 1,
+        exp: "Mengubah Pancasila berarti mengancam kedaulatan NKRI."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 1",
+        q: "Menjaga ketenangan lingkungan ketika tetangga sedang melaksanakan ibadah adalah pengamalan sila ke-1 di...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Kantor"],
+        ans: 2,
+        exp: "Menjaga ketenangan saat tetangga beribadah adalah pengamalan di lingkungan masyarakat."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 2",
+        q: "Gemar melakukan kegiatan kemanusiaan seperti donor darah atau menyumbang korban bencana merupakan penerapan sila ke...",
+        options: ["1", "2", "3", "4"],
+        ans: 1,
+        exp: "Kegiatan kemanusiaan adalah bentuk nyata sila ke-2."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 3",
+        q: "Memajukan pergaulan demi persatuan dan kesatuan bangsa berdasarkan Bhinneka Tunggal Ika merupakan pengamalan sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 1,
+        exp: "Pergaulan demi persatuan bangsa adalah pengamalan sila ke-3."
+    },
+    {
+        pkg: 2,
+        cat: "Penerapan Sila 4",
+        q: "Tidak boleh memaksakan kehendak diri sendiri kepada orang lain dalam musyawarah merupakan prinsip sila ke...",
+        options: ["1", "2", "3", "4"],
+        ans: 3,
+        exp: "Dilarang memaksakan kehendak adalah butir sila ke-4."
+    },
+
+            // --- PACKAGE 3: POHON BERINGIN (Soal 18-25: Panitia Sembilan & Piagam Jakarta) ---
+     
+    {
+        pkg: 3,
+        cat: "BPUPK",
+        q: "Jepang membentuk BPUPK pada tahun 1945 terutama karena posisi Jepang yang mulai terdesak oleh pasukan...",
+        options: ["Sekutu", "Inggris saja", "Belanda saja", "China"],
+        ans: 0,
+        exp: "Jepang terdesak akibat serangan dari pasukan Sekutu dalam Perang Dunia II."
+    },
+    {
+        pkg: 3,
+        cat: "BPUPK",
+        q: "Wilayah Pasifik tempat jatuhnya kekuasaan Jepang ke tangan sekutu pada tahun 1944 adalah...",
+        options: ["Saipan", "Singapura", "Malaysia", "Filipina"],
+        ans: 0,
+        exp: "Pada tahun 1944, wilayah Saipan jatuh ke tangan sekutu."
+    },
+    {
+        pkg: 3,
+        cat: "BPUPK",
+        q: "Kepulauan lain di Pasifik tempat pasukan Jepang dipukul mundur oleh sekutu selain Saipan adalah...",
+        options: ["Papua Nugini, Kepulauan Solomon, dan Kepulauan Marshall", "Jepang daratan", "Madagaskar", "Hawaii"],
+        ans: 0,
+        exp: "Pasukan Jepang dipukul mundur di Papua Nugini, Kepulauan Solomon, dan Kepulauan Marshall."
+    },
+    {
+        pkg: 3,
+        cat: "BPUPK",
+        q: "Siapa nama wakil sekretariat BPUPK dari pihak Indonesia yang mendampingi R.P. Soeroso?",
+        options: ["Mr. Abdoel Gafar Pringgodigdo", "Mohammad Yamin", "Soepomo", "Achmad Soebardjo"],
+        ans: 0,
+        exp: "R.P. Soeroso dibantu oleh Mr. A.G. Pringgodigdo dan Masuda Toyohiko."
+    },
+    {
+        pkg: 3,
+        cat: "BPUPK",
+        q: "Pembentukan BPUPK bertujuan saling menguntungkan, yaitu bagi Indonesia untuk persiapan merdeka dan bagi Jepang untuk...",
+        options: ["Mendapatkan bantuan ekonomi saja", "Mendapatkan dukungan dari bangsa Indonesia dalam perang", "Menjual hasil industri", "Menjadikan Indonesia provinsi Jepang"],
+        ans: 1,
+        exp: "Jepang memerlukan dukungan rakyat Indonesia dalam menghadapi Perang Dunia II."
+    },
+    {
+        pkg: 3,
+        cat: "Perumusan Pancasila",
+        q: "Siapa saja 3 tokoh utama yang menyampaikan gagasan rumusan dasar negara pada sidang pertama BPUPK?",
+        options: ["Soekarno, Hatta, Soepomo", "Moh. Yamin, Prof. Dr. Soepomo, Ir. Soekarno", "Moh. Yamin, Agus Salim, Soekarno", "Wahid Hasjim, Soepomo, Soekarno"],
+        ans: 1,
+        exp: "Tiga tokoh perumus dasar negara pada sidang I BPUPK adalah Moh. Yamin, Soepomo, dan Ir. Soekarno."
+    },
+    {
+        pkg: 3,
+        cat: "Perumusan Pancasila",
+        q: "Lima asas usulan Moh. Yamin secara lisan mencakup peri-peri berikut, KECUALI...",
+        options: ["Peri Kebangsaan", "Peri Kemanusiaan", "Peri Kebebasan", "Peri Kerakyatan"],
+        ans: 2,
+        exp: "Kelima asas lisan Yamin: Peri Kebangsaan, Peri Kemanusiaan, Peri Ketuhanan, Peri Kerakyatan, Kesejahteraan Rakyat."
+    },
+    {
+        pkg: 3,
+        cat: "Perumusan Pancasila",
+        q: "Prinsip 'Keseimbangan Lahir dan Batin' merupakan usulan dasar negara dari...",
+        options: ["Ir. Soekarno", "Prof. Dr. Soepomo", "Moh. Yamin", "Drs. Moh. Hatta"],
+        ans: 1,
+        exp: "Keseimbangan lahir batin diusulkan oleh Prof. Dr. Soepomo."
+    },
+    {
+        pkg: 3,
+        cat: "Perumusan Pancasila",
+        q: "Istilah 'Internasionalisme atau Peri Kemanusiaan' terdapat pada usulan dasar negara oleh...",
+        options: ["Moh. Yamin", "Prof. Dr. Soepomo", "Ir. Soekarno", "A.A. Maramis"],
+        ans: 2,
+        exp: "Internasionalisme atau peri kemanusiaan diusulkan oleh Ir. Soekarno pada 1 Juni 1945."
+    },
+    {
+        pkg: 3,
+        cat: "Panitia Sembilan",
+        q: "Siapa anggota Panitia Sembilan yang bertindak sebagai perwakilan dari golongan Kristen/Katholik?",
+        options: ["Mr. Alexander Andries Maramis", "Haji Agus Salim", "Abdoel Kahar Moezakir", "K.H. Wahid Hasjim"],
+        ans: 0,
+        exp: "Mr. A.A. Maramis adalah anggota Panitia Sembilan mewakili golongan non-Muslim."
+    },
+    {
+        pkg: 3,
+        cat: "Panitia Sembilan",
+        q: "Siapa anggota Panitia Sembilan dari unsur ulama/tokoh Nahdlatul Ulama (NU)?",
+        options: ["Kiai Haji Abdul Wahid Hasjim", "Haji Agus Salim", "Abdoel Kahar Moezakir", "Raden Abikusno Tjokrosoejoso"],
+        ans: 0,
+        exp: "K.H. Wahid Hasjim merupakan tokoh Islam / NU dalam Panitia Sembilan."
+    },
+    {
+        pkg: 3,
+        cat: "Panitia Sembilan",
+        q: "Naskah Piagam Jakarta kemudian dijadikan sebagai dasar penyusunan...",
+        options: ["Batang Tubuh UUD 1945", "Pembukaan UUD 1945", "Teks Proklamasi", "Penjelasan UUD"],
+        ans: 1,
+        exp: "Konsep Pembukaan UUD 1945 diambil dari alinea keempat Piagam Jakarta."
+    },
+    {
+        pkg: 3,
+        cat: "Panitia Sembilan",
+        q: "Perubahan sila pertama Piagam Jakarta menjadi 'Ketuhanan Yang Maha Esa' dilakukan demi menjaga...",
+        options: ["Keinginan Jepang", "Persatuan dan kesatuan bangsa Indonesia", "Perintah Sekutu", "Kepentingan pribadi Soekarno"],
+        ans: 1,
+        exp: "Perubahan frasa dilakukan demi menjaga persatuan bangsa dari ancaman perpecahan."
+    },
+    {
+        pkg: 3,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia Kecil Perancang UUD (7 orang) mengadakan rapat kerja pada tanggal...",
+        options: ["10 Juli 1945", "11 Juli 1945", "13 Juli 1945", "14 Juli 1945"],
+        ans: 2,
+        exp: "Sidang kerja Panitia Perancang UUD dilaksanakan pada tanggal 13 Juli 1945."
+    },
+    {
+        pkg: 3,
+        cat: "Sidang BPUPK Kedua",
+        q: "Rapat Pleno BPUPK menerima laporan Panitia Perancang UUD pada tanggal...",
+        options: ["11 Juli 1945", "14 Juli 1945", "17 Juli 1945", "18 Agustus 1945"],
+        ans: 1,
+        exp: "Pada 14 Juli 1945 diadakan rapat pleno yang menerima laporan Panitia Perancang UUD."
+    },
+    {
+        pkg: 3,
+        cat: "Sidang BPUPK Kedua",
+        q: "Sidang kedua BPUPK secara resmi ditutup pada tanggal...",
+        options: ["14 Juli 1945", "17 Juli 1945", "7 Agustus 1945", "17 Agustus 1945"],
+        ans: 1,
+        exp: "Sidang kedua BPUPK resmi ditutup pada 17 Juli 1945."
+    },
+    {
+        pkg: 3,
+        cat: "PPKI",
+        q: "Siapa Ketua dan Wakil Ketua PPKI?",
+        options: ["Ir. Soekarno dan Drs. Moh. Hatta", "Dr. Radjiman Wedyodiningrat dan R.P. Soeroso", "Moh. Yamin dan Soepomo", "Soekarno dan Agus Salim"],
+        ans: 0,
+        exp: "PPKI diketuai Ir. Soekarno dan diwakili Drs. Mohammad Hatta."
+    },
+    {
+        pkg: 3,
+        cat: "PPKI",
+        q: "Perubahan jumlah anggota PPKI dari 21 menjadi 27 orang menunjukkan bahwa PPKI...",
+        options: ["Masih dikendalikan penuh oleh Jepang", "Murni dibentuk bangsa Indonesia untuk mempersiapkan NKRI", "Atas perintah Tentara Sekutu", "Organisasi buatan luar negeri"],
+        ans: 1,
+        exp: "Penambahan anggota tanpa ijin Jepang membuktikan PPKI bersifat nasionalis murni milik Indonesia."
+    },
+    {
+        pkg: 3,
+        cat: "Garuda Pancasila",
+        q: "Jumlah total bulu pada Garuda Pancasila jika digabungkan (17-8-19-45) melambangkan...",
+        options: ["Hari ulang tahun kota Jakarta", "Tanggal, bulan, dan tahun Proklamasi Kemerdekaan RI", "Jumlah anggota BPUPK", "Luas wilayah Indonesia"],
+        ans: 1,
+        exp: "Jumlah bulu melambangkan tanggal 17 Agustus 1945."
+    },
+    {
+        pkg: 3,
+        cat: "Garuda Pancasila",
+        q: "Makna cakar burung Garuda yang menggenggam erat pita Bhinneka Tunggal Ika adalah...",
+        options: ["Persatuan dan kesatuan bangsa Indonesia", "Permusuhan antar suku", "Kekuatan militer", "Cinta alam"],
+        ans: 0,
+        exp: "Cengkraman cakar pada pita melambangkan persatuan dan kesatuan bangsa."
+    },
+    {
+        pkg: 3,
+        cat: "Lambang Sila",
+        q: "Simbol Bintang pada sila ke-1 memiliki sudut sebanyak...",
+        options: ["4 sudut", "5 sudut", "6 sudut", "8 sudut"],
+        ans: 1,
+        exp: "Bintang sila pertama memiliki 5 sudut yang melambangkan keberagaman agama di Indonesia."
+    },
+    {
+        pkg: 3,
+        cat: "Lambang Sila",
+        q: "Mata rantai bulat dan persegi pada lambang sila ke-2 saling berkait dan tidak putus, bermakna...",
+        options: ["Hubungan manusia yang kokoh, kuat, dan saling membutuhkan", "Perbedaan yang sulit disatukan", "Perpecahan antar gender", "Perjuangan fisik semata"],
+        ans: 0,
+        exp: "Rantai tak terputus bermakna ikatan manusia yang kokoh dan saling membutuhkan."
+    },
+    {
+        pkg: 3,
+        cat: "Lambang Sila",
+        q: "Warna putih pada latar belakang lambang sila ke-3 (pohon beringin) melambangkan...",
+        options: ["Keberanian dan darah", "Kesucian, kejujuran, dan kemurnian", "Keagungan", "Perjuangan"],
+        ans: 1,
+        exp: "Warna putih melambangkan kesucian, kejujuran, dan kemurnian."
+    },
+    {
+        pkg: 3,
+        cat: "Lambang Sila",
+        q: "Warna merah pada latar belakang lambang Kepala Banteng (Sila 4) melambangkan...",
+        options: ["Kesucian", "Keberanian", "Perdamaian", "Keagungan"],
+        ans: 1,
+        exp: "Warna merah melambangkan keberanian."
+    },
+    {
+        pkg: 3,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila sebagai 'Jiwa Bangsa Indonesia' berarti Pancasila...",
+        options: ["Lahir bersamaan dengan lahirnya bangsa Indonesia dan memberikan corak khas", "Baru dibuat setelah Indonesia merdeka", "Hanya formalitas dokumen", "Diadopsi dari ideologi luar"],
+        ans: 0,
+        exp: "Pancasila merupakan jiwa yang memberikan corak khas dan hidup sejak bangsa Indonesia ada."
+    },
+    {
+        pkg: 3,
+        cat: "Fungsi Pancasila",
+        q: "Fungsi Pancasila sebagai 'Perjanjian Luhur' disandarkan pada peristiwa...",
+        options: ["Sidang BPUPK I", "Kesepakatan para pendiri bangsa saat mengesahkan Pancasila 18 Agustus 1945", "Sumpah Pemuda 1928", "Proklamasi 17 Agustus"],
+        ans: 1,
+        exp: "Disepakati oleh wakil-wakil rakyat (PPKI) dari seluruh Nusantara pada 18 Agustus 1945."
+    },
+    {
+        pkg: 3,
+        cat: "Nilai Juang",
+        q: "Saat para wakil pendiri bangsa dari berbagai daerah berkumpul, mereka menyingkirkan ego kedaerahan. Nilai juang ini dinamakan...",
+        options: ["Mengutamakan persatuan", "Rela berkorban", "Tanpa pamrih", "Toleransi agama"],
+        ans: 0,
+        exp: "Pendiri negara tidak memikirkan asal suku, tetapi mengutamakan persatuan bangsa."
+    },
+    {
+        pkg: 3,
+        cat: "Nilai Juang",
+        q: "Sikap toleransi para pendiri bangsa saat mengubah kalimat dalam Piagam Jakarta demi persatuan adalah contoh...",
+        options: ["Sikap memaksakan kehendak", "Mengutamakan persatuan dan mau berkorban ego", "Sikap acuh tak acuh", "Kelemahan diplomasi"],
+        ans: 1,
+        exp: "Merupakan wujud pengorbanan ego demi persatuan dan kesatuan nasional."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 1",
+        q: "Saling menghormati dan toleransi antarumat beragama adalah wujud penerapan nilai...",
+        options: ["Ketuhanan", "Kemanusiaan", "Persatuan", "Keadilan"],
+        ans: 0,
+        exp: "Toleransi beragama adalah wujud nilai Ketuhanan (Sila 1)."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 1",
+        q: "Mengingatkan anggota keluarga untuk segera beribadah tepat waktu merupakan sikap sesuai sila pertama di lingkungan...",
+        options: ["Masyarakat", "Keluarga", "Sekolah", "Tempat bermain"],
+        ans: 1,
+        exp: "Mengingatkan ibadah di rumah adalah contoh pengamalan Sila 1 di lingkungan keluarga."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 2",
+        q: "Memperlakukan setiap orang sesuai harkat dan martabatnya sebagai makhluk ciptaan Tuhan mencerminkan nilai...",
+        options: ["Kemanusiaan", "Persatuan", "Kerakyatan", "Keadilan"],
+        ans: 0,
+        exp: "Menghargai harkat martabat manusia adalah inti dari nilai kemanusiaan (Sila 2)."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 2",
+        q: "Menolong teman di sekolah yang jatuh atau mengalami kesulitan tanpa membedakan suku adalah pengamalan sila...",
+        options: ["1", "2", "3", "4"],
+        ans: 1,
+        exp: "Menolong teman yang kesulitan di sekolah adalah contoh pengamalan sila ke-2."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 3",
+        q: "Bangga menggunakan pakaian batik atau karya anak bangsa adalah penerapan nilai sila ke-3 yaitu...",
+        options: ["Toleransi beragama", "Cinta tanah air dan karya bangsa", "Demokrasi", "Tenggang rasa"],
+        ans: 1,
+        exp: "Bangga batik dan produk lokal adalah wujud rasa cinta tanah air."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 3",
+        q: "Membantu berbagai kegiatan kerja bakti di lingkungan rumah bersama keluarga mencerminkan pengamalan sila ke-3 di...",
+        options: ["Sekolah", "Keluarga", "Pasar", "Negara"],
+        ans: 1,
+        exp: "Membantu kegiatan bersama keluarga menjaga kerukunan internal keluarga."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 4",
+        q: "Sikap mau menerima dan mempertimbangkan pendapat tetangga atau warga lain dalam rapat RT merupakan pengamalan sila ke-4 di...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Kantor"],
+        ans: 2,
+        exp: "Menerima pendapat tetangga dalam rapat RT adalah penerapan Sila 4 di masyarakat."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 4",
+        q: "Menyelesaikan masalah keluarga dengan merumuskan kesepakatan bersama melalui diskusi santai disebut...",
+        options: ["Voting", "Musyawarah keluarga", "Debat kusir", "Pemilu"],
+        ans: 1,
+        exp: "Diskusi mencari kesepakatan keluarga adalah bentuk musyawarah keluarga."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 5",
+        q: "Mengembangkan perbuatan terpuji yang mencerminkan kekeluargaan dan gotong royong merupakan butir pengamalan sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 3,
+        exp: "Gotong royong dan sikap kekeluargaan adalah butir pengamalan sila ke-5."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 5",
+        q: "Tidak menggunakan hak milik untuk hal-hal yang bersifat pemborosan dan gaya hidup mewah adalah pengamalan sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 3,
+        exp: "Hemat dan tidak bergaya hidup mewah adalah penerapan butir sila ke-5."
+    },
+    {
+        pkg: 3,
+        cat: "Membiasakan Perilaku",
+        q: "Mengapa kita tidak boleh mengganti dasar negara Pancasila?",
+        options: ["Karena dapat memicu perpecahan dan merusak kedaulatan NKRI", "Karena rumit untuk dibuat", "Karena dilarang oleh PBB", "Karena tidak ada penggantinya"],
+        ans: 0,
+        exp: "Mengganti Pancasila merusak pondasi dan kedaulatan NKRI."
+    },
+    {
+        pkg: 3,
+        cat: "Membiasakan Perilaku",
+        q: "Pancasila sebagai 'Pandangan Hidup Bangsa' merupakan perwujudan dari...",
+        options: ["Budaya bangsa asing", "Nilai budaya milik bangsa Indonesia sendiri yang diyakini kebenarannya", "Aturan Kerajaan masa lalu", "Undang-Undang Luar Negeri"],
+        ans: 1,
+        exp: "Pandangan hidup berakar dari nilai asli budaya Indonesia."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 1",
+        q: "Bersikap jujur dan berbicara apa adanya kepada orang tua di rumah sesuai dengan pengamalan sila...",
+        options: ["Pertama", "Kedua", "Ketiga", "Keempat"],
+        ans: 0,
+        exp: "Jujur adalah bagian dari ketakwaan kepada Tuhan (Sila 1)."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 2",
+        q: "Menghormati hak asasi sesama warga di sekitar tempat tinggal kita adalah pengamalan sila ke-2 di lingkungan...",
+        options: ["Sekolah", "Keluarga", "Masyarakat", "Kerja"],
+        ans: 2,
+        exp: "Menghormati hak asasi tetangga/masyarakat adalah contoh pengamalan Sila 2 di masyarakat."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 3",
+        q: "Menjalin hubungan baik dengan semua unsur suku dan budaya bangsa merupakan penerapan sila ke-3 di...",
+        options: ["Masyarakat", "Keluarga", "Kelas", "Rumah"],
+        ans: 0,
+        exp: "Menjalin hubungan baik antarunsur bangsa di ruang publik adalah pengamalan di masyarakat."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 4",
+        q: "Melaksanakan pemilihan umum (Pemilu) secara jujur dan adil merupakan pengamalan sila ke-4 di lingkungan...",
+        options: ["Keluarga", "Sekolah", "Masyarakat/Bernegara", "Rumah Tangga"],
+        ans: 2,
+        exp: "Pemilu adalah sarana demokrasi sila ke-4 dalam tingkat masyarakat dan negara."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 5",
+        q: "Selalu memberikan hak dan kewajiban secara adil kepada setiap anggota keluarga di rumah adalah pengamalan sila ke-5 di...",
+        options: ["Sekolah", "Keluarga", "Masyarakat", "Kantor"],
+        ans: 1,
+        exp: "Adil membagi hak dan kewajiban di rumah adalah pengamalan Sila 5 di keluarga."
+    },
+    {
+        pkg: 3,
+        cat: "Perumusan Pancasila",
+        q: "Di manakah sidang BPUPK dilaksanakan?",
+        options: ["Gedung Chuo Sangi In (Gedung Pancasila)", "Istana Merdeka", "Gedung Pegangsaan Timur 56", "Gedung DPR"],
+        ans: 0,
+        exp: "Sidang BPUPK diselenggarakan di Gedung Chuo Sangi In (sekarang Gedung Pancasila)."
+    },
+    {
+        pkg: 3,
+        cat: "BPUPK",
+        q: "Apa nama jabatan pimpinan BPUPK dalam bahasa Jepang untuk 'Ketua Muda'?",
+        options: ["Kaico", "Fuku Kaico", "Shido", "Kancho"],
+        ans: 1,
+        exp: "Ketua muda atau wakil ketua dalam istilah Jepang dinamakan Fuku Kaico."
+    },
+    {
+        pkg: 3,
+        cat: "Garuda Pancasila",
+        q: "Makna gerak dinamis dan sayap mengembang pada burung Garuda adalah...",
+        options: ["Bangsa Indonesia siap terbang dan maju ke angkasa menuju cita-cita", "Ketakutan akan musuh", "Kewaspadaan semata", "Keinginan menguasai negara lain"],
+        ans: 0,
+        exp: "Sayap mengembang menggambarkan dinamisme bangsa yang siap terbang maju."
+    },
+    {
+        pkg: 3,
+        cat: "Nilai Juang",
+        q: "Mengutamakan kepentingan bangsa dan negara di atas kepentingan pribadi/golongan dinamakan...",
+        options: ["Nasionalisme dan cinta tanah air", "Egoisme", "Individualisme", "Kekeluargaan"],
+        ans: 0,
+        exp: "Mendahulukan kepentingan umum di atas pribadi adalah jiwa nasionalisme."
+    },
+    {
+        pkg: 3,
+        cat: "Penerapan Sila 5",
+        q: "Mendukung kemajuan dan pembangunan bangsa, baik material maupun spiritual merupakan penerapan sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 3,
+        exp: "Mendukung pembangunan yang merata adalah amanat sila ke-5."
+    },
+
+            // --- PACKAGE 4: KEPALA BANTENG (Soal 26-33: Sidang BPUPK II & PPKI) ---
+     
+
+    {
+        pkg: 4,
+        cat: "BPUPK",
+        q: "Pelantikan resmi anggota BPUPK dilakukan pada tanggal...",
+        options: ["1 Maret 1945", "28 Mei 1945", "29 Mei 1945", "1 Juni 1945"],
+        ans: 1,
+        exp: "Upacara pelantikan BPUPK dilaksanakan pada 28 Mei 1945 dan sidang dimulai 29 Mei 1945."
+    },
+    {
+        pkg: 4,
+        cat: "BPUPK",
+        q: "Sambutan pada pembukaan sidang pertama BPUPK diberikan oleh wakil tentara pendudukan Jepang yang berisi nasihat agar...",
+        options: ["Segera menyerang Sekutu", "Mengadakan penyelidikan secara cermat terkait dasar Indonesia merdeka", "Menyerahkan kekuasaan pada Jepang", "Membentuk pasukan tentara baru"],
+        ans: 1,
+        exp: "Jepang menasihati agar BPUPK menyelidiki hal dasar negara secara cermat."
+    },
+    {
+        pkg: 4,
+        cat: "Perumusan Pancasila",
+        q: "Sila 'Peri Ketuhanan' dalam usulan lisan dikemukakan oleh...",
+        options: ["Moh. Yamin", "Soepomo", "Ir. Soekarno", "Hatta"],
+        ans: 0,
+        exp: "Peri Ketuhanan adalah sila ke-3 dalam usulan lisan Moh. Yamin."
+    },
+    {
+        pkg: 4,
+        cat: "Perumusan Pancasila",
+        q: "Sila 'Musyawarah' sebagai salah satu dari lima prinsip dasar negara diusulkan oleh...",
+        options: ["Moh. Yamin", "Prof. Dr. Soepomo", "Ir. Soekarno", "K.H. Wahid Hasjim"],
+        ans: 1,
+        exp: "Musyawarah diusulkan oleh Prof. Dr. Soepomo pada 31 Mei 1945."
+    },
+    {
+        pkg: 4,
+        cat: "Perumusan Pancasila",
+        q: "Sila 'Mufakat atau Demokrasi' dikemukakan oleh Ir. Soekarno sebagai sila ke...",
+        options: ["1", "2", "3", "4"],
+        ans: 2,
+        exp: "Mufakat atau Demokrasi adalah sila ke-3 dari usulan Ir. Soekarno."
+    },
+    {
+        pkg: 4,
+        cat: "Panitia Sembilan",
+        q: "Tokoh berikut yang bertindak sebagai anggota Panitia Sembilan adalah...",
+        options: ["Raden Abikusno Tjokrosoejoso", "Dr. Radjiman Wedyodiningrat", "R.P. Soeroso", "Ki Bagus Hadikusumo"],
+        ans: 0,
+        exp: "Abikusno Tjokrosoejoso adalah salah satu anggota Panitia Sembilan."
+    },
+    {
+        pkg: 4,
+        cat: "Panitia Sembilan",
+        q: "Mr. Raden Achmad Soebardjo Djojoadisoerjo dalam Panitia Sembilan bertindak sebagai...",
+        options: ["Ketua", "Wakil Ketua", "Anggota", "Sekretaris"],
+        ans: 2,
+        exp: "Achmad Soebardjo berkedudukan sebagai anggota Panitia Sembilan."
+    },
+    {
+        pkg: 4,
+        cat: "Panitia Sembilan",
+        q: "Keberatan atas sila pertama Piagam Jakarta juga disampaikan oleh tokoh Islam terkemuka yaitu...",
+        options: ["Ki Bagus Hadikusumo", "Soekarno", "A.A. Maramis", "Moh. Yamin"],
+        ans: 0,
+        exp: "Keberatan dan masukan terkait sila 1 juga datang dari Ki Bagus Hadikusumo."
+    },
+    {
+        pkg: 4,
+        cat: "Sidang BPUPK Kedua",
+        q: "Berapa jumlah anggota Panitia Perancang Undang-Undang Dasar (UUD)?",
+        options: ["7 orang", "9 orang", "19 orang", "38 orang"],
+        ans: 2,
+        exp: "Panitia Perancang UUD beranggotakan 19 orang."
+    },
+    {
+        pkg: 4,
+        cat: "Sidang BPUPK Kedua",
+        q: "Siapa ketua Panitia Kecil Perancang UUD yang beranggotakan 7 orang?",
+        options: ["Prof. Dr. Mr. Soepomo", "Ir. Soekarno", "Mr. A.A. Maramis", "H. Agus Salim"],
+        ans: 0,
+        exp: "Ketua panitia kecil 7 orang tersebut adalah Prof. Dr. Mr. Soepomo."
+    },
+    {
+        pkg: 4,
+        cat: "PPKI",
+        q: "PPKI dilantik dan mulai bersidang setelah proklamasi, yaitu pada tanggal...",
+        options: ["17 Agustus 1945", "18 Agustus 1945", "19 Agustus 1945", "20 Agustus 1945"],
+        ans: 1,
+        exp: "PPKI menetapkan keputusan-keputusan penting pada sidang 18 Agustus 1945."
+    },
+    {
+        pkg: 4,
+        cat: "PPKI",
+        q: "Salah satu keputusan sidang PPKI 18 Agustus 1945 adalah membentuk sebuah lembaga untuk membantu Presiden, yaitu...",
+        options: ["DPR", "MPR", "Komite Nasional", "Kabinet Menterial"],
+        ans: 2,
+        exp: "Keputusan ke-3 PPKI adalah membentuk Komite Nasional untuk membantu presiden."
+    },
+    {
+        pkg: 4,
+        cat: "Garuda Pancasila",
+        q: "Jumlah helai bulu leher Garuda Pancasila yang berjumlah 45 melambangkan...",
+        options: ["Tanggal kemerdekaan", "Bulan kemerdekaan", "Tahun kemerdekaan 1945", "Jumlah pasal UUD"],
+        ans: 2,
+        exp: "45 helai bulu leher melambangkan tahun kemerdekaan 1945."
+    },
+    {
+        pkg: 4,
+        cat: "Garuda Pancasila",
+        q: "Warna kuning keemasan pada Garuda Pancasila memiliki makna...",
+        options: ["Keberanian", "Keagungan dan keluhuran martabat", "Kesucian", "Kemakmuran pertanian"],
+        ans: 1,
+        exp: "Warna kuning emas melambangkan keagungan martabat bangsa."
+    },
+    {
+        pkg: 4,
+        cat: "Lambang Sila",
+        q: "Di manakah posisi lambang Sila Kedua (Rantai) pada perisai Garuda?",
+        options: ["Tengah perisai", "Pojok kanan bawah", "Pojok kiri atas", "Pojok kanan atas"],
+        ans: 1,
+        exp: "Lambang Sila ke-2 (Rantai) terletak di bagian kanan bawah perisai."
+    },
+    {
+        pkg: 4,
+        cat: "Lambang Sila",
+        q: "Di manakah posisi lambang Sila Ketiga (Pohon Beringin) pada perisai Garuda?",
+        options: ["Pojok kanan atas", "Pojok kiri atas", "Pojok kanan bawah", "Pojok kiri bawah"],
+        ans: 0,
+        exp: "Lambang Sila ke-3 terletak di bagian kanan atas perisai."
+    },
+    {
+        pkg: 4,
+        cat: "Lambang Sila",
+        q: "Di manakah posisi lambang Sila Keempat (Kepala Banteng) pada perisai Garuda?",
+        options: ["Pojok kiri atas", "Pojok kanan atas", "Tengah", "Pojok kiri bawah"],
+        ans: 0,
+        exp: "Lambang Sila ke-4 terletak di bagian kiri atas perisai."
+    },
+    {
+        pkg: 4,
+        cat: "Lambang Sila",
+        q: "Di manakah posisi lambang Sila Kelima (Padi dan Kapas) pada perisai Garuda?",
+        options: ["Pojok kiri bawah", "Pojok kanan bawah", "Tengah", "Pojok kanan atas"],
+        ans: 0,
+        exp: "Lambang Sila ke-5 terletak di bagian kiri bawah perisai."
+    },
+    {
+        pkg: 4,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila sebagai 'Kepribadian Bangsa Indonesia' berarti...",
+        options: ["Pancasila memberikan ciri khas dan pembeda bangsa Indonesia dengan bangsa lain", "Pancasila diimpor dari luar negeri", "Setiap warga bebas membuat hukum sendiri", "Pancasila hanya berlaku di sekolah"],
+        ans: 0,
+        exp: "Sikap dan mental Pancasila menjadi pembeda khas bangsa Indonesia."
+    },
+    {
+        pkg: 4,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila sebagai 'Cita-cita dan Tujuan Bangsa' berfungsi sebagai...",
+        options: ["Arahan untuk mencapai masyarakat adil dan makmur", "Beban negara", "Aturan sementara", "Syarat pinjaman luar negeri"],
+        ans: 0,
+        exp: "Pancasila memuat target/cita-cita menciptakan masyarakat adil dan makmur."
+    },
+    {
+        pkg: 4,
+        cat: "Nilai Juang",
+        q: "Melakukan tugas dan perbuatan demi kebaikan bangsa tanpa mengharapkan pujian disebut...",
+        options: ["Tanpa pamrih", "Gaya hidup mewah", "Diskriminasi", "Egois"],
+        ans: 0,
+        exp: "Tanpa pamrih adalah berbuat ikhlas tanpa mencari pujian atau imbalan."
+    },
+    {
+        pkg: 4,
+        cat: "Nilai Juang",
+        q: "Menghormati perbedaan suku, agama, dan adat dalam rapat musyawarah merupakan wujud...",
+        options: ["Toleransi dan mengutamakan persatuan", "Kelemahan", "Kekalahan pendapat", "Arogansi"],
+        ans: 0,
+        exp: "Menerima keberagaman adalah bentuk toleransi demi persatuan."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 1",
+        q: "Menunjukkan sikap toleran kepada seluruh warga sekolah tanpa membeda-bedakan keyakinannya adalah wujud Sila ke...",
+        options: ["1", "2", "3", "4"],
+        ans: 0,
+        exp: "Toleransi keyakinan antar warga sekolah sesuai sila ke-1."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 1",
+        q: "Membina kerukunan hidup di antara sesama umat beragama merupakan butir pengamalan sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 0,
+        exp: "Membina kerukunan umat beragama adalah butir sila ke-1."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 2",
+        q: "Saling menyayangi antaranggota keluarga di rumah merupakan contoh pengamalan sila ke-2 di lingkungan...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Negara"],
+        ans: 0,
+        exp: "Saling menyayangi di rumah adalah penerapan Sila 2 di keluarga."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 2",
+        q: "Berani membela kebenaran dan keadilan merupakan butir pengamalan sila ke...",
+        options: ["1", "2", "3", "4"],
+        ans: 1,
+        exp: "Membela kebenaran dan keadilan adalah butir Sila 2."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 3",
+        q: "Selalu menjaga kerukunan dengan saudara dan orang tua di rumah adalah contoh pengamalan sila ke-3 di...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Organisasi"],
+        ans: 0,
+        exp: "Menjaga kerukunan di rumah merupakan pengamalan Sila 3 di keluarga."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 3",
+        q: "Sanggup dan rela berkorban untuk kepentingan negara dan bangsa apabila diperlukan adalah pengamalan sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 2,
+        exp: "Rela berkorban demi negara adalah butir Sila ke-3."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 4",
+        q: "Setiap anggota keluarga bertanggung jawab melaksanakan hasil keputusan musyawarah rumah tangga. Ini adalah Sila 4 di...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Kelurahan"],
+        ans: 0,
+        exp: "Tanggung jawab atas musyawarah keluarga adalah penerapan Sila 4 di rumah."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 4",
+        q: "Musyawarah dilakukan dengan akal sehat dan sesuai dengan hati nurani yang luhur merupakan butir sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 2,
+        exp: "Musyawarah berakal sehat dan bernurani luhur adalah butir Sila 4."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 5",
+        q: "Menghormati hak-hak orang lain di lingkungan masyarakat tempat tinggal merupakan contoh pengamalan sila ke-5 di...",
+        options: ["Masyarakat", "Keluarga", "Sekolah", "Kelas"],
+        ans: 0,
+        exp: "Menghormati hak orang lain di sekitar rumah adalah pengamalan Sila 5 di masyarakat."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 5",
+        q: "Menjaga keseimbangan antara hak dan kewajiban diri sendiri merupakan pengamalan sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 3,
+        exp: "Keseimbangan hak dan kewajiban adalah prinsip utama Sila 5."
+    },
+    {
+        pkg: 4,
+        cat: "Membiasakan Perilaku",
+        q: "Penerapan nilai-nilai Pancasila bagi setiap warga negara Indonesia hukumnya adalah...",
+        options: ["Wajib", "Sunnah/Sukarela", "Boleh diabaikan", "Hanya jika diingatkan polisi"],
+        ans: 0,
+        exp: "Penerapan nilai-nilai Pancasila merupakan kewajiban setiap warga negara."
+    },
+    {
+        pkg: 4,
+        cat: "Membiasakan Perilaku",
+        q: "Nilai-nilai Pancasila bersumber pada...",
+        options: ["Kepribadian dan budaya bangsa Indonesia", "Hukum negara Barat", "Aturan penjajah Jepang", "Buku-buku asing"],
+        ans: 0,
+        exp: "Pancasila bersumber dari kepribadian asli bangsa Indonesia."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 1",
+        q: "Tidak menjadikan perbedaan agama sebagai halangan untuk berteman di sekolah adalah contoh sila ke-1 di...",
+        options: ["Sekolah", "Keluarga", "Masyarakat", "Rumah"],
+        ans: 0,
+        exp: "Berteman tanpa membedakan agama di lingkungan sekolah adalah Sila 1 di sekolah."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 2",
+        q: "Mengakui bahwa manusia adalah makhluk paling mulia ciptaan Tuhan mengandung nilai...",
+        options: ["Kemanusiaan", "Persatuan", "Kerakyatan", "Keadilan"],
+        ans: 0,
+        exp: "Mengakui kemuliaan manusia adalah bagian nilai kemanusiaan (Sila 2)."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 3",
+        q: "Mengucapkan salam dan saling menyapa jika bertemu teman dan guru di sekolah merupakan pengamalan sila ke-3 di...",
+        options: ["Sekolah", "Rumah", "Pasar", "Masyarakat"],
+        ans: 0,
+        exp: "Saling menyapa guru dan teman menjaga persatuan di sekolah."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 4",
+        q: "Menghormati keputusan bersama untuk kepentingan kelas merupakan contoh sila ke-4 di...",
+        options: ["Sekolah", "Keluarga", "Masyarakat", "Negara"],
+        ans: 0,
+        exp: "Menghormati keputusan kelas adalah penerapan Sila 4 di sekolah."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 5",
+        q: "Saling menghargai sesama teman dan tidak membeda-bedakan perlakuan di kelas adalah Sila ke-5 di...",
+        options: ["Sekolah", "Rumah", "Masyarakat", "Kelurahan"],
+        ans: 0,
+        exp: "Saling menghargai teman sekolah adalah penerapan Sila 5 di sekolah."
+    },
+    {
+        pkg: 4,
+        cat: "BPUPK",
+        q: "Kapan BPUPK pertama kali dibentuk oleh Letnan Jenderal Kumakichi Harada?",
+        options: ["1 Maret 1945", "29 Mei 1945", "1 Juni 1945", "17 Agustus 1945"],
+        ans: 0,
+        exp: "BPUPK diumumkan pembentukannya pada 1 Maret 1945."
+    },
+    {
+        pkg: 4,
+        cat: "Perumusan Pancasila",
+        q: "Sila 'Kesejahteraan Sosial' merupakan usulan sila ke-4 dari tokoh...",
+        options: ["Ir. Soekarno", "Moh. Yamin", "Soepomo", "Hatta"],
+        ans: 0,
+        exp: "Kesejahteraan sosial adalah sila ke-4 dari pidato Ir. Soekarno."
+    },
+    {
+        pkg: 4,
+        cat: "Panitia Sembilan",
+        q: "Pertemuan Panitia Sembilan yang menghasilkan Piagam Jakarta dilaksanakan pada tanggal...",
+        options: ["22 Juni 1945", "1 Juni 1945", "29 Mei 1945", "18 Agustus 1945"],
+        ans: 0,
+        exp: "Piagam Jakarta dirumuskan pada 22 Juni 1945."
+    },
+    {
+        pkg: 4,
+        cat: "Sidang BPUPK Kedua",
+        q: "Berapa anggota Panitia Kecil Perancang UUD yang diketuai Soepomo?",
+        options: ["7 orang", "9 orang", "19 orang", "21 orang"],
+        ans: 0,
+        exp: "Panitia kecil khusus perancang UUD beranggotakan 7 orang."
+    },
+    {
+        pkg: 4,
+        cat: "PPKI",
+        q: "PPKI dibentuk menggantikan BPUPK pada tanggal...",
+        options: ["7 Agustus 1945", "17 Agustus 1945", "18 Agustus 1945", "1 Juni 1945"],
+        ans: 0,
+        exp: "PPKI dibentuk pada 7 Agustus 1945 setelah BPUPK dibubarkan."
+    },
+    {
+        pkg: 4,
+        cat: "Garuda Pancasila",
+        q: "Pita putih yang dicengkeram burung Garuda bertuliskan kalimat...",
+        options: ["Bhinneka Tunggal Ika", "Pancasila Sakti", "Indonesia Raya", "NKRI Harga Mati"],
+        ans: 0,
+        exp: "Pita memuat semboyan Bhinneka Tunggal Ika."
+    },
+    {
+        pkg: 4,
+        cat: "Lambang Sila",
+        q: "Simbol Rantai pada sila kedua terdiri dari dua bentuk mata rantai yaitu...",
+        options: ["Bulat dan Persegi", "Segitiga dan Bulat", "Bintang dan Bulat", "Persegi dan Oval"],
+        ans: 0,
+        exp: "Rantai terdiri dari mata rantai berbentuk bulat dan persegi."
+    },
+    {
+        pkg: 4,
+        cat: "Nilai Juang",
+        q: "Kegiatan berunding bersama untuk mencapai keputusan bersama atas masalah tertentu disebut...",
+        options: ["Musyawarah", "Voting", "Debat", "Pidato"],
+        ans: 0,
+        exp: "Musyawarah adalah kegiatan berunding untuk mufakat."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 1",
+        q: "Menghindari perilaku yang bersifat mengejek atau mencela agama orang lain merupakan pengamalan sila ke-1 di...",
+        options: ["Masyarakat", "Keluarga", "Sekolah", "Kelas"],
+        ans: 0,
+        exp: "Tidak mencela agama lain di ruang umum adalah pengamalan di masyarakat."
+    },
+    {
+        pkg: 4,
+        cat: "Penerapan Sila 2",
+        q: "Gemar melakukan kegiatan kemanusiaan merupakan contoh penerapan Sila 2 di lingkungan...",
+        options: ["Sekolah", "Masyarakat", "Keluarga", "Rumah"],
+        ans: 0,
+        exp: "Kegiatan kemanusiaan di sekolah seperti bakti sosial adalah Sila 2 di sekolah."
+    },
+	{
+        pkg: 4,
+        cat: "Penerapan Sila 5",
+        q: "Mendukung kemajuan dan pembangunan bangsa, baik material maupun spiritual merupakan penerapan sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 3,
+        exp: "Mendukung pembangunan yang merata adalah amanat sila ke-5."
+    },
+
+            // --- PACKAGE 5: PADI DAN KAPAS (Soal 34-41: Makna Lambang Garuda Pancasila) ---
+          
+    {
+        pkg: 0,
+        cat: "BPUPK",
+        q: "Apa kepanjangan dari BPUPK?",
+        options: ["Badan Penyelidik Usaha-Usaha Persiapan Kemerdekaan", "Badan Pelaksana Pengesahan Udang-Undang Kemerdekaan", "Badan Penyelenggara Persiapan Utama Kemerdekaan", "Panitia Persiapan Kemerdekaan Indonesia"],
+        ans: 0,
+        exp: "BPUPK adalah Badan Penyelidik Usaha-Usaha Persiapan Kemerdekaan."
+    },
+    {
+        pkg: 5,
+        cat: "BPUPK",
+        q: "Berapa orang wakil ketua BPUPK?",
+        options: ["1 orang", "2 orang", "3 orang", "4 orang"],
+        ans: 1,
+        exp: "BPUPK memiliki 2 wakil ketua: Ichibangase Yosio (Jepang) dan R.P. Soeroso (Indonesia)."
+    },
+    {
+        pkg: 5,
+        cat: "BPUPK",
+        q: "Siapa wakil dari pihak Indonesia dalam Badan Tata Usaha BPUPK mendampingi R.P. Soeroso?",
+        options: ["Mr. Abdoel Gafar Pringgodigdo", "Achmad Soebardjo", "Moh. Yamin", "A.A. Maramis"],
+        ans: 0,
+        exp: "Mr. Abdoel Gafar Pringgodigdo menjadi wakil pimpinan Badan Tata Usaha."
+    },
+    {
+        pkg: 5,
+        cat: "BPUPK",
+        q: "Alasan utama Jepang membubarkan BPUPK pada 7 Agustus 1945 adalah...",
+        options: ["BPUPK dianggap gagal", "Tugas-tugas BPUPK telah selesai dilaksanakan", "Jepang sudah menang perang", "Diprotes oleh tentara Sekutu"],
+        ans: 1,
+        exp: "BPUPK dibubarkan karena tugas penyelidikannya dianggap telah selesai."
+    },
+    {
+        pkg: 5,
+        cat: "Perumusan Pancasila",
+        q: "Gagasan tertulis Moh. Yamin tentang rumusan dasar negara sila ke-5 berbunyi...",
+        options: ["Kesejahteraan rakyat", "Keadilan sosial bagi seluruh rakyat Indonesia", "Keadilan lahir batin", "Kesejahteraan sosial"],
+        ans: 1,
+        exp: "Secara tertulis sila ke-5 Moh. Yamin: Keadilan sosial bagi seluruh rakyat Indonesia."
+    },
+    {
+        pkg: 5,
+        cat: "Perumusan Pancasila",
+        q: "Prof. Dr. Soepomo mengusulkan prinsip dasar negara pada tanggal...",
+        options: ["29 Mei 1945", "31 Mei 1945", "1 Juni 1945", "22 Juni 1945"],
+        ans: 1,
+        exp: "Soepomo berpidato pada 31 Mei 1945."
+    },
+    {
+        pkg: 5,
+        cat: "Perumusan Pancasila",
+        q: "Siapa yang menyebut lima sila dasar negara yang diusulkannya dengan nama Pancasila?",
+        options: ["Ir. Soekarno", "Moh. Yamin", "Soepomo", "Radjiman Wedyodiningrat"],
+        ans: 0,
+        exp: "Ir. Soekarno memberikan nama Pancasila atas petunjuk ahli bahasa."
+    },
+    {
+        pkg: 5,
+        cat: "Panitia Sembilan",
+        q: "Siapa saja wakil pimpinan Panitia Sembilan?",
+        options: ["Ir. Soekarno (Ketua) & Drs. Moh. Hatta (Wakil Ketua)", "Moh. Yamin (Ketua) & Soepomo (Wakil)", "Soekarno (Ketua) & A.A. Maramis (Wakil)", "Wahid Hasjim (Ketua) & Agus Salim (Wakil)"],
+        ans: 0,
+        exp: "Ketua Ir. Soekarno dan Wakil Ketua Drs. Moh. Hatta."
+    },
+    {
+        pkg: 5,
+        cat: "Panitia Sembilan",
+        q: "Berikut ini tokoh diplomasi ulung yang menjadi anggota Panitia Sembilan adalah...",
+        options: ["Haji Agus Salim", "Radjiman Wedyodiningrat", "R.P. Soeroso", "Sukarni"],
+        ans: 0,
+        exp: "Haji Agus Salim adalah salah satu dari 9 anggota Panitia Sembilan."
+    },
+    {
+        pkg: 5,
+        cat: "Panitia Sembilan",
+        q: "Naskah rumusan dasar negara Piagam Jakarta disepakati pada tanggal...",
+        options: ["1 Juni 1945", "22 Juni 1945", "10 Juli 1945", "17 Agustus 1945"],
+        ans: 1,
+        exp: "Piagam Jakarta disepakati pada 22 Juni 1945."
+    },
+    {
+        pkg: 5,
+        cat: "Sidang BPUPK Kedua",
+        q: "Rancangan UUD disepakati dalam sidang BPUPK kedua, sehingga sidang resmi ditutup pada tanggal...",
+        options: ["10 Juli 1945", "13 Juli 1945", "14 Juli 1945", "17 Juli 1945"],
+        ans: 3,
+        exp: "Sidang II BPUPK selesai dan ditutup pada 17 Juli 1945."
+    },
+    {
+        pkg: 5,
+        cat: "Sidang BPUPK Kedua",
+        q: "Konsep Undang-Undang Dasar hampir seluruhnya diambil dari alinea ke-4...",
+        options: ["Piagam Jakarta", "Teks Proklamasi", "Sumpah Pemuda", "Pidato Soepomo"],
+        ans: 0,
+        exp: "Konsep UUD mayoritas diambil dari alinea ke-4 Piagam Jakarta."
+    },
+    {
+        pkg: 5,
+        cat: "PPKI",
+        q: "Jumlah total anggota PPKI setelah ditambahkan oleh Soekarno adalah...",
+        options: ["21 orang", "27 orang", "38 orang", "67 orang"],
+        ans: 1,
+        exp: "Total anggota PPKI menjadi 27 orang."
+    },
+    {
+        pkg: 5,
+        cat: "PPKI",
+        q: "Salah satu pemicu utama dipercepatnya proklamasi adalah peristiwa menyerahnya Jepang pada Sekutu akibat...",
+        options: ["Ledakan bom atom di Hiroshima dan Nagasaki", "Serangan darat di Jakarta", "Pemberontakan PETA", "Kekalahan di Pasifik semata"],
+        ans: 0,
+        exp: "Penjatuhan bom atom di Hiroshima dan Nagasaki membuat Jepang menyerah tanpa syarat."
+    },
+    {
+        pkg: 5,
+        cat: "Garuda Pancasila",
+        q: "Legenda/mitologi burung apakah yang menjadi dasar pemikiran lambang Garuda?",
+        options: ["Legenda Hindia di India", "Mitos Yunani", "Legenda Mesir", "Mitos Nordik"],
+        ans: 0,
+        exp: "Burung Garuda berasal dari mitologi legenda Hindia di India."
+    },
+    {
+        pkg: 5,
+        cat: "Garuda Pancasila",
+        q: "Sebutan lain bagi burung Garuda dalam cerita rakyat/sejarah adalah...",
+        options: ["Burung Sakti Elang Rajawali", "Burung Merpati Putih", "Burung Cendrawasih Emas", "Burung Garuda Mulia"],
+        ans: 0,
+        exp: "Garuda dikenal juga dengan sebutan Burung Sakti Elang Rajawali."
+    },
+    {
+        pkg: 5,
+        cat: "Garuda Pancasila",
+        q: "Bulan kemerdekaan Indonesia (Agustus/bulan 8) dilambangkan oleh bulu Garuda pada bagian...",
+        options: ["Sayap", "Ekor", "Pangkal ekor", "Leher"],
+        ans: 1,
+        exp: "8 helai bulu ekor melambangkan bulan Agustus."
+    },
+    {
+        pkg: 5,
+        cat: "Lambang Sila",
+        q: "Bintang keemasan pada sila pertama memiliki makna sebagai...",
+        options: ["Cahaya kerohanian yang menyinari kehidupan manusia", "Kekayaan emas Indonesia", "Bintang di langit malam", "Petunjuk arah kapal"],
+        ans: 0,
+        exp: "Warna keemasan melambangkan cahaya rohani dari Tuhan yang menyinari manusia."
+    },
+    {
+        pkg: 5,
+        cat: "Lambang Sila",
+        q: "Mata rantai persegi pada lambang sila ke-2 melambangkan...",
+        options: ["Laki-laki", "Perempuan", "Anak-anak", "Lansia"],
+        ans: 0,
+        exp: "Mata rantai persegi melambangkan laki-laki."
+    },
+    {
+        pkg: 5,
+        cat: "Lambang Sila",
+        q: "Makna tempat berteduh dan naungan yang aman bagi seluruh rakyat dilambangkan oleh...",
+        options: ["Bintang", "Rantai", "Pohon Beringin yang besar", "Padi dan Kapas"],
+        ans: 2,
+        exp: "Pohon beringin besar melambangkan tempat berteduh/naungan aman."
+    },
+    {
+        pkg: 5,
+        cat: "Lambang Sila",
+        q: "Simbol Kepala Banteng diartikan sebagai musyawarah karena banteng adalah hewan yang...",
+        options: ["Suka berkumpul dan berdiskusi sosial", "Suka menyerang", "Sangat kuat sendiri", "Pemalas"],
+        ans: 0,
+        exp: "Banteng adalah hewan sosial yang suka berkumpul, melambangkan musyawarah."
+    },
+    {
+        pkg: 5,
+        cat: "Lambang Sila",
+        q: "Bahan utama pembuatan pakaian/sandang yang menjadi simbol sila kelima adalah...",
+        options: ["Padi", "Kapas", "Pohon Beringin", "Rantai"],
+        ans: 1,
+        exp: "Kapas adalah bahan utama pakaian/sandang."
+    },
+    {
+        pkg: 5,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila sebagai 'Falsafah Hidup yang Mempersatukan Bangsa' berfungsi...",
+        options: ["Mewadahi keberagaman menjadi satu kesatuan yang utuh", "Memisahkan tiap suku", "Mewajibkan satu budaya", "Mengabaikan hukum lokal"],
+        ans: 0,
+        exp: "Falsafah hidup menyatukan segenap elemen bangsa yang beragam."
+    },
+    {
+        pkg: 5,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila sebagai 'Pedoman Hidup' berarti...",
+        options: ["Petunjuk dan arahan tingkah laku dalam kehidupan sehari-hari", "Hanya dibaca saat upacara", "Hanya dihafal siswa", "Buku teks pelajaran"],
+        ans: 0,
+        exp: "Pedoman hidup menjadi arahan perilaku sehari-hari."
+    },
+    {
+        pkg: 5,
+        cat: "Nilai Juang",
+        q: "Para pendiri bangsa berjuang tanpa mengharapkan imbalan uang atau jabatan. Ini mencerminkan jiwa...",
+        options: ["Tanpa pamrih", "Gaya hidup mewah", "Sombong", "Individualis"],
+        ans: 0,
+        exp: "Berjuang tanpa imbalan dinamakan tanpa pamrih."
+    },
+    {
+        pkg: 5,
+        cat: "Nilai Juang",
+        q: "Rela tidak memaksakan pendapat pribadi demi tercapainya mufakat merupakan bentuk nilai juang...",
+        options: ["Musyawarah dan mengutamakan persatuan", "Kelemahan", "Kepasrahan", "Egoisme"],
+        ans: 0,
+        exp: "Menerima hasil mufakat adalah bentuk jiwa musyawarah."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 1",
+        q: "Bersedia membantu sesama warga masyarakat meskipun berbeda keyakinan adalah pengamalan sila ke-1 di...",
+        options: ["Masyarakat", "Sekolah", "Keluarga", "Kelas"],
+        ans: 0,
+        exp: "Saling bantu antarwarga beda agama di lingkungan rumah adalah pengamalan di masyarakat."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 1",
+        q: "Bangsa Indonesia menyatakan kepercayaan dan ketakwaan kepada Tuhan Yang Maha Esa merupakan butir sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 0,
+        exp: "Menyatakan takwa adalah butir pertama Sila 1."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 2",
+        q: "Menerima hak sebagai seorang pelajar di sekolah merupakan contoh pengamalan sila ke-2 di...",
+        options: ["Sekolah", "Keluarga", "Masyarakat", "Negara"],
+        ans: 0,
+        exp: "Pemenuhan dan penerimaan hak pelajar di sekolah sesuai Sila 2."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 2",
+        q: "Mengembangkan sikap saling mencintai sesama manusia adalah butir pengamalan sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 1,
+        exp: "Mencintai sesama manusia adalah nilai Sila 2."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 3",
+        q: "Menjunjung tinggi persatuan dan kesatuan di lingkungan masyarakat merupakan pengamalan sila ke-3 di...",
+        options: ["Masyarakat", "Keluarga", "Sekolah", "Rumah"],
+        ans: 0,
+        exp: "Menjaga persatuan warga adalah pengamalan Sila 3 di masyarakat."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 3",
+        q: "Mengembangkan rasa bangga berkebangsaan dan bertanah air Indonesia adalah butir sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 2,
+        exp: "Bangga bertanah air Indonesia adalah butir Sila 3."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 4",
+        q: "Semua anggota masyarakat bertanggung jawab melaksanakan keputusan hasil musyawarah RT/RW. Ini contoh Sila 4 di...",
+        options: ["Masyarakat", "Keluarga", "Sekolah", "Kelas"],
+        ans: 0,
+        exp: "Tanggung jawab atas keputusan RT/RW adalah penerapan Sila 4 di masyarakat."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 4",
+        q: "Memberi kepercayaan kepada wakil-wakil yang dipercaya untuk melaksanakan pemusyawaratan adalah butir sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 2,
+        exp: "Kepercayaan pada wakil rakyat adalah butir Sila 4."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 5",
+        q: "Berlaku adil kepada semua orang sesuai hak dan kewajibannya merupakan penerapan nilai...",
+        options: ["Keadilan (Sila 5)", "Ketuhanan (Sila 1)", "Persatuan (Sila 3)", "Demokrasi (Sila 4)"],
+        ans: 0,
+        exp: "Berlaku adil sesuai hak dan kewajiban adalah nilai Keadilan (Sila 5)."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 5",
+        q: "Tidak menggunakan hak milik untuk usaha-usaha yang bersifat pemerasan terhadap orang lain adalah butir sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 3,
+        exp: "Dilarang memeras orang lain adalah butir Sila 5."
+    },
+    {
+        pkg: 5,
+        cat: "Membiasakan Perilaku",
+        q: "Mempertahankan Pancasila sama artinya dengan mempertahankan...",
+        options: ["Negara Kesatuan Republik Indonesia (NKRI)", "Pemerintah kolonial", "Organisasi swasta", "Kepentingan pribadi"],
+        ans: 0,
+        exp: "Mempertahankan Pancasila berarti mempertahankan keutuhan NKRI."
+    },
+    {
+        pkg: 5,
+        cat: "Membiasakan Perilaku",
+        q: "Jika sebuah bangsa tidak memiliki pandangan hidup, bangsa tersebut akan...",
+        options: ["Maju pesat", "Rentan terpecah belah karena tidak memiliki arah dan tujuan jelas", "Sangat kaya", "Aman tenteram"],
+        ans: 1,
+        exp: "Tanpa pandangan hidup, suatu bangsa mudah terpecah belah."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 1",
+        q: "Mencintai lingkungan hidup dan makhluk hidup lainnya sebagai ciptaan Tuhan mengandung nilai sila...",
+        options: ["Pertama", "Kedua", "Ketiga", "Keempat"],
+        ans: 0,
+        exp: "Mencintai makhluk ciptaan Tuhan adalah wujud Sila 1."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 2",
+        q: "Sikap tidak semena-mena terhadap orang lain merupakan wujud nilai...",
+        options: ["Kemanusiaan (Sila 2)", "Ketuhanan (Sila 1)", "Persatuan (Sila 3)", "Kerakyatan (Sila 4)"],
+        ans: 0,
+        exp: "Tidak semena-mena adalah bagian nilai kemanusiaan Sila 2."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 3",
+        q: "Mengutamakan kepentingan bersama di atas kepentingan pribadi dalam keluarga adalah pengamalan Sila 3 di...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Kantor"],
+        ans: 0,
+        exp: "Pengorbanan pribadi demi kebersamaan di rumah adalah Sila 3 di keluarga."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 4",
+        q: "Melaksanakan keputusan bersama kelas dengan rasa penuh tanggung jawab adalah Sila 4 di...",
+        options: ["Sekolah", "Masyarakat", "Rumah", "Pasar"],
+        ans: 0,
+        exp: "Tanggung jawab keputusan kelas adalah pengamalan Sila 4 di sekolah."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 5",
+        q: "Saling membantu anggota keluarga lain di rumah merupakan pengamalan sila ke-5 di...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Desa"],
+        ans: 0,
+        exp: "Saling membantu tugas di rumah adalah pengamalan Sila 5 di keluarga."
+    },
+    {
+        pkg: 5,
+        cat: "BPUPK",
+        q: "Siapa nama lengkap ketua BPUPK?",
+        options: ["Dr. K.R.T. Radjiman Wedyodiningrat", "Prof. Dr. Soepomo", "Raden Pandji Soeroso", "Mr. Mohammad Yamin"],
+        ans: 0,
+        exp: "Nama lengkap ketua BPUPK adalah Dr. K.R.T. Radjiman Wedyodiningrat."
+    },
+    {
+        pkg: 5,
+        cat: "Perumusan Pancasila",
+        q: "Rumusan 'Peri Kesejahteraan Rakyat' dikemukakan oleh Moh. Yamin pada tanggal...",
+        options: ["29 Mei 1945", "31 Mei 1945", "1 Juni 1945", "22 Juni 1945"],
+        ans: 0,
+        exp: "Disampaikan pada pidato tanggal 29 Mei 1945."
+    },
+    {
+        pkg: 5,
+        cat: "Panitia Sembilan",
+        q: "Tokoh Panitia Sembilan yang juga menjabat sebagai Wakil Presiden Pertama RI adalah...",
+        options: ["Drs. Mohammad Hatta", "Ir. Soekarno", "Mohammad Yamin", "Achmad Soebardjo"],
+        ans: 0,
+        exp: "Drs. Mohammad Hatta adalah Wakil Presiden I RI."
+    },
+    {
+        pkg: 5,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia Perancang UUD menyepakati bahwa Pembukaan UUD hampir seluruhnya diambil dari...",
+        options: ["Alinea ke-4 Piagam Jakarta", "Teks Proklamasi", "Sumpah Pemuda", "Batang Tubuh"],
+        ans: 0,
+        exp: "Pembukaan UUD diambil dari alinea ke-4 Piagam Jakarta."
+    },
+    {
+        pkg: 5,
+        cat: "PPKI",
+        q: "Berapa jumlah wakil dari Sumatra dalam keanggotaan awal PPKI?",
+        options: ["3 orang", "12 orang", "2 orang", "1 orang"],
+        ans: 0,
+        exp: "Wakil Sumatra dalam PPKI berjumlah 3 orang."
+    },
+    {
+        pkg: 5,
+        cat: "Garuda Pancasila",
+        q: "Perisai pada dada burung Garuda dibagi menjadi ruang atas dan bawah oleh garis melintang yang melambangkan...",
+        options: ["Garis Khatulistiwa", "Garis Bujur", "Batas Negara", "Lautan"],
+        ans: 0,
+        exp: "Garis hitam tebal melambangkan garis khatulistiwa."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 5",
+        q: "Suka memberi pertolongan kepada orang lain secara adil merupakan butir sila...",
+        options: ["Ke-5", "Ke-2", "Ke-3", "Ke-1"],
+        ans: 0,
+        exp: "Suka menolong secara adil adalah butir Sila 5."
+    },
+
+            // --- PACKAGE 6: GARUDA (Soal 42-50: Nilai Juang & Pengamalan Sila 1-5) ---
+          
+    {
+        pkg: 6,
+        cat: "BPUPK",
+        q: "Tanggal berapa sidang pertama BPUPK resmi dimulai?",
+        options: ["29 Mei 1945", "28 Mei 1945", "1 Juni 1945", "10 Juli 1945"],
+        ans: 0,
+        exp: "Sidang pertama dimulai pada tanggal 29 Mei 1945."
+    },
+    {
+        pkg: 6,
+        cat: "BPUPK",
+        q: "Berapa total anggota Badan Tata Usaha BPUPK termasuk pimpinannya?",
+        options: ["60 orang", "67 orang", "21 orang", "38 orang"],
+        ans: 0,
+        exp: "Badan Tata Usaha beranggotakan 60 orang."
+    },
+    {
+        pkg: 6,
+        cat: "BPUPK",
+        q: "Letnan Jenderal Kumakichi Harada merupakan pimpinan tentara pendudukan Jepang untuk wilayah...",
+        options: ["Jawa", "Sumatra", "Kalimantan", "Sulawesi"],
+        ans: 0,
+        exp: "Kumakichi Harada adalah pimpinan pemerintah pendudukan Jepang di Jawa."
+    },
+    {
+        pkg: 6,
+        cat: "Perumusan Pancasila",
+        q: "Prinsip 'Kekeluargaan' dalam rumusan dasar negara diusulkan oleh...",
+        options: ["Prof. Dr. Soepomo", "Moh. Yamin", "Ir. Soekarno", "Hatta"],
+        ans: 0,
+        exp: "Prinsip Kekeluargaan diusulkan oleh Prof. Dr. Soepomo."
+    },
+    {
+        pkg: 6,
+        cat: "Perumusan Pancasila",
+        q: "Prinsip 'Kebangsaan Indonesia' merupakan sila pertama usulan dari...",
+        options: ["Ir. Soekarno", "Moh. Yamin", "Soepomo", "Agus Salim"],
+        ans: 0,
+        exp: "Kebangsaan Indonesia diusulkan oleh Ir. Soekarno pada 1 Juni 1945."
+    },
+    {
+        pkg: 6,
+        cat: "Perumusan Pancasila",
+        q: "Gagasan tertulis Moh. Yamin tentang sila ke-4 berbunyi...",
+        options: ["Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan", "Peri Kerakyatan", "Mufakat atau demokrasi", "Musyawarah"],
+        ans: 0,
+        exp: "Secara tertulis Moh. Yamin menuliskan rumusan sila ke-4 persis seperti UUD 1945."
+    },
+    {
+        pkg: 6,
+        cat: "Panitia Sembilan",
+        q: "Abdoel Kahar Moezakir merupakan anggota Panitia Sembilan dari unsur...",
+        options: ["Golongan Islam / Muhammadiyah", "Golongan Kebangsaan", "Perwakilan Jepang", "Militer"],
+        ans: 0,
+        exp: "Abdoel Kahar Moezakir adalah tokoh perwakilan Islam (Muhammadiyah)."
+    },
+    {
+        pkg: 6,
+        cat: "Panitia Sembilan",
+        q: "Hasil kerja Panitia Sembilan dinamakan Piagam Jakarta yang disepakati pada tanggal...",
+        options: ["22 Juni 1945", "1 Juni 1945", "18 Agustus 1945", "17 Agustus 1945"],
+        ans: 0,
+        exp: "Disepakati pada 22 Juni 1945."
+    },
+    {
+        pkg: 6,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia Pembelaan Tanah Air pada sidang BPUPK kedua diketuai oleh...",
+        options: ["Abikoesno Tjokrosoejoso", "Soekarno", "Moh. Hatta", "Soepomo"],
+        ans: 0,
+        exp: "Diketuai oleh Abikoesno Tjokrosoejoso."
+    },
+    {
+        pkg: 6,
+        cat: "Sidang BPUPK Kedua",
+        q: "Panitia Ekonomi dan Keuangan dibentuk pada sidang BPUPK kedua dan diketuai oleh...",
+        options: ["Drs. Mohammad Hatta", "Ir. Soekarno", "A.A. Maramis", "Radjiman"],
+        ans: 0,
+        exp: "Diketuai oleh Drs. Mohammad Hatta."
+    },
+    {
+        pkg: 6,
+        cat: "PPKI",
+        q: "Berapa wakil dari Sulawesi dalam keanggotaan awal PPKI?",
+        options: ["2 orang", "3 orang", "12 orang", "1 orang"],
+        ans: 0,
+        exp: "Wakil Sulawesi berjumlah 2 orang."
+    },
+    {
+        pkg: 6,
+        cat: "PPKI",
+        q: "Berapa wakil dari Kalimantan dalam keanggotaan awal PPKI?",
+        options: ["1 orang", "2 orang", "3 orang", "12 orang"],
+        ans: 0,
+        exp: "Wakil Kalimantan berjumlah 1 orang."
+    },
+    {
+        pkg: 6,
+        cat: "Garuda Pancasila",
+        q: "19 helai bulu pada Garuda Pancasila terletak di bagian...",
+        options: ["Pangkal ekor", "Ekor", "Sayap", "Leher"],
+        ans: 0,
+        exp: "Pangkal ekor memiliki 19 helai bulu."
+    },
+    {
+        pkg: 6,
+        cat: "Garuda Pancasila",
+        q: "17 helai bulu pada Garuda Pancasila terletak di bagian...",
+        options: ["Sayap kanan dan kiri", "Leher", "Ekor", "Pangkal ekor"],
+        ans: 0,
+        exp: "Masing-masing sayap memiliki 17 helai bulu."
+    },
+    {
+        pkg: 6,
+        cat: "Lambang Sila",
+        q: "Warna dasar hitam pada simbol Bintang Sila Pertama melambangkan...",
+        options: ["Indonesia selalu berada dalam lindungan Tuhan Yang Maha Esa", "Keberanian", "Kesucian", "Kemakmuran"],
+        ans: 0,
+        exp: "Warna dasar hitam bermakna perlindungan Tuhan YME."
+    },
+    {
+        pkg: 6,
+        cat: "Lambang Sila",
+        q: "Penyebab rantai bulat melambangkan perempuan dan rantai persegi melambangkan laki-laki adalah untuk menggambarkan...",
+        options: ["Kesetaraan gender dan saling membutuhkan dalam bermasyarakat", "Perbedaan hak", "Keunggulan laki-laki", "Keunggulan perempuan"],
+        ans: 0,
+        exp: "Menggambarkan kesetaraan gender dan hubungan saling membutuhkan."
+    },
+    {
+        pkg: 6,
+        cat: "Lambang Sila",
+        q: "Keberagaman suku dan budaya di Indonesia dicerminkan oleh bagian pohon beringin yaitu...",
+        options: ["Akar menjalar", "Akar tunggang", "Daun", "Batang"],
+        ans: 0,
+        exp: "Akar menjalar mencerminkan keragaman suku/budaya di Nusantara."
+    },
+    {
+        pkg: 6,
+        cat: "Lambang Sila",
+        q: "Kepala banteng dipilih sebagai lambang Sila ke-4 karena banteng merupakan simbol...",
+        options: ["Kekuatan besar dan kebiasaan berkumpul", "Kelembutan", "Kesucian", "Pangan"],
+        ans: 0,
+        exp: "Banteng melambangkan kekuatan besar dan jiwa sosial yang suka berkumpul."
+    },
+    {
+        pkg: 6,
+        cat: "Lambang Sila",
+        q: "Pasangan simbol Padi dan Kapas mewakili dua kebutuhan dasar manusia yaitu...",
+        options: ["Pangan dan Sandang", "Pangan dan Papan", "Sandang dan Papan", "Pendidikan dan Kesehatan"],
+        ans: 0,
+        exp: "Padi = pangan, Kapas = sandang."
+    },
+    {
+        pkg: 6,
+        cat: "Fungsi Pancasila",
+        q: "Pancasila sebagai 'Dasar Negara' mengandung arti bahwa Pancasila menjadi...",
+        options: ["Landasan dan fondasi utama penyusunan seluruh hukum dan tatanan negara", "Hanya hiasan dokumen negara", "Program kerja partai", "Aturan kebiasaan"],
+        ans: 0,
+        exp: "Dasar negara adalah fondasi utama norma hukum dan tatanan bernegara."
+    },
+    {
+        pkg: 6,
+        cat: "Nilai Juang",
+        q: "Sikap mementingkan persatuan bangsa dengan cara bersedia merubah rumusan Piagam Jakarta menunjukkan nilai juang...",
+        options: ["Mengutamakan persatuan dan toleransi", "Egoisme", "Keterpaksaan", "Kepasrahan"],
+        ans: 0,
+        exp: "Penyesuaian rumusan demi persatuan adalah wujud toleransi dan persatuan."
+    },
+    {
+        pkg: 6,
+        cat: "Nilai Juang",
+        q: "Melakukan ikhtiar terbaik demi bangsa tanpa mengharapkan penghargaan pribadi dinamakan...",
+        options: ["Berjuang tanpa pamrih", "Pencitraan", "Gaya hidup mewah", "Diskriminasi"],
+        ans: 0,
+        exp: "Tanpa pamrih adalah berjuang ikhlas tanpa niat mendapat keuntungan/pujian pribadi."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 1",
+        q: "Mengembangkan sikap saling menghormati kebebasan menjalankan ibadah sesuai agama masing-masing adalah butir sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 0,
+        exp: "Menghormati kebebasan beribadah adalah butir Sila 1."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 1",
+        q: "Mengejek atau mencela agama orang lain merupakan tindakan yang menyimpang dari sila...",
+        options: ["Pertama", "Kedua", "Ketiga", "Keempat"],
+        ans: 0,
+        exp: "Mencela agama lain melanggar prinsip Sila 1."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 2",
+        q: "Menolong teman di sekolah yang mengalami kesulitan dengan tulus adalah penerapan sila ke-2 di...",
+        options: ["Sekolah", "Rumah", "Pasar", "Masyarakat"],
+        ans: 0,
+        exp: "Menolong teman di sekolah adalah penerapan Sila 2 di sekolah."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 2",
+        q: "Mengembangkan sikap saling tenggang rasa dan tepa salira merupakan butir pengamalan sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 1,
+        exp: "Tenggang rasa dan tepa salira adalah butir Sila 2."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 3",
+        q: "Menggunakan bahasa Indonesia yang baik dan benar serta bangga dengan produk buatan dalam negeri mencerminkan nilai...",
+        options: ["Cinta tanah air (Sila 3)", "Kebebasan berpendapat", "Sikap tidak beradab", "Toleransi agama"],
+        ans: 0,
+        exp: "Cinta produk dan bahasa nasional adalah wujud Sila 3."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 3",
+        q: "Memelihara ketertiban dunia yang berdasarkan kemerdekaan dan perdamaian abadi adalah butir sila...",
+        options: ["Ke-1", "Ke-2", "Ke-3", "Ke-4"],
+        ans: 2,
+        exp: "Perdamaian dunia dan persatuan adalah butir Sila 3."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 4",
+        q: "Musyawarah untuk mencapai mufakat diliputi oleh semangat kekeluargaan merupakan butir sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 2,
+        exp: "Musyawarah diliputi semangat kekeluargaan adalah butir Sila 4."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 4",
+        q: "Mengutamakan kepentingan bersama di atas kepentingan pribadi/golongan dalam musyawarah adalah butir sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 2,
+        exp: "Mengutamakan kepentingan umum dalam musyawarah adalah butir Sila 4."
+    },
+    {
+        pkg: 5,
+        cat: "Penerapan Sila 5",
+        q: "Merawat keseimbangan hak dan kewajiban diri sendiri di lingkungan rumah/masyarakat merupakan penerapan sila ke...",
+        options: ["2", "3", "4", "5"],
+        ans: 3,
+        exp: "Menjaga keseimbangan hak dan kewajiban adalah butir Sila 5."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 5",
+        q: "Tidak menggunakan hak milik untuk hal-hal yang bertentangan atau merugikan kepentingan umum merupakan butir sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 3,
+        exp: "Dilarang merugikan kepentingan umum adalah butir Sila 5."
+    },
+    {
+        pkg: 6,
+        cat: "Membiasakan Perilaku",
+        q: "Lingkungan paling pertama dan utama untuk membiasakan penerapan nilai-nilai Pancasila adalah...",
+        options: ["Lingkungan keluarga", "Lingkungan negara", "Lingkungan internasional", "Masyarakat umum"],
+        ans: 0,
+        exp: "Keluarga merupakan unit terkecil masyarakat tempat awal pembiasaan nilai Pancasila."
+    },
+    {
+        pkg: 6,
+        cat: "Membiasakan Perilaku",
+        q: "Kedudukan Pancasila sebagai pandangan hidup bangsa Indonesia berarti Pancasila dipergunakan sebagai...",
+        options: ["Pedoman petunjuk tingkah laku sehari-hari serta pemecah masalah bangsa", "Cinderamata negara", "Aturan tertulis tentara saja", "Simbol di paspor"],
+        ans: 0,
+        exp: "Pandangan hidup berfungsi sebagai pedoman menyelesaikan masalah dan bertingkah laku."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 1",
+        q: "Jujur dalam menyampaikan kata-kata kepada orang tua adalah contoh pengamalan sila ke-1 di...",
+        options: ["Keluarga", "Sekolah", "Masyarakat", "Pasar"],
+        ans: 0,
+        exp: "Jujur kepada orang tua di rumah adalah pengamalan Sila 1 di keluarga."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 2",
+        q: "Mengakui persamaan derajat tanpa membeda-bedakan suku dan jenis kelamin merupakan nilai...",
+        options: ["Kemanusiaan (Sila 2)", "Ketuhanan (Sila 1)", "Persatuan (Sila 3)", "Demokrasi (Sila 4)"],
+        ans: 0,
+        exp: "Persamaan derajat tanpa membedakan suku/gender adalah inti Sila 2."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 3",
+        q: "Saling menyapa dan mengucapkan salam bila bertemu warga di jalan tempat tinggal adalah Sila ke-3 di...",
+        options: ["Masyarakat", "Keluarga", "Sekolah", "Kelas"],
+        ans: 0,
+        exp: "Menjaga keakraban antarwarga di jalan adalah pengamalan Sila 3 di masyarakat."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 4",
+        q: "Menghormati serta menjunjung tinggi setiap keputusan yang dicapai sebagai hasil musyawarah adalah butir sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 2,
+        exp: "Menjunjung tinggi keputusan musyawarah adalah butir Sila 4."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 5",
+        q: "Tidak menggunakan hak milik untuk gaya hidup mewah dan boros adalah butir pengamalan sila...",
+        options: ["Ke-2", "Ke-3", "Ke-4", "Ke-5"],
+        ans: 3,
+        exp: "Menjauhi gaya hidup mewah adalah butir Sila 5."
+    },
+    {
+        pkg: 6,
+        cat: "BPUPK",
+        q: "BPUPK dibentuk oleh pemerintah pendudukan Jepang pada tanggal 1 Maret 1945 dan resmi dibubarkan pada...",
+        options: ["7 Agustus 1945", "17 Agustus 1945", "18 Agustus 1945", "22 Juni 1945"],
+        ans: 0,
+        exp: "Dibubarkan pada 7 Agustus 1945."
+    },
+    {
+        pkg: 6,
+        cat: "Perumusan Pancasila",
+        q: "Siapakah 3 tokoh yang mengemukakan rumusan dasar negara dalam sidang BPUPK I?",
+        options: ["Moh. Yamin, Soepomo, dan Soekarno", "Soekarno, Hatta, dan Rajjiman", "Moh. Yamin, Hatta, dan Agus Salim", "Soepomo, Soekarno, dan Wahid Hasjim"],
+        ans: 0,
+        exp: "Ketiga tokoh tersebut adalah Moh. Yamin, Prof. Dr. Soepomo, dan Ir. Soekarno."
+    },
+    {
+        pkg: 6,
+        cat: "Panitia Sembilan",
+        q: "Mr. Alexander Andries Maramis dalam Panitia Sembilan menjabat sebagai...",
+        options: ["Anggota", "Ketua", "Wakil Ketua", "Sekretaris"],
+        ans: 0,
+        exp: "A.A. Maramis menjabat sebagai anggota Panitia Sembilan."
+    },
+    {
+        pkg: 6,
+        cat: "Sidang BPUPK Kedua",
+        q: "Tiga hal utama yang dihasilkan dalam sidang BPUPK II adalah susunan...",
+        options: ["Pernyataan Indonesia merdeka, Pembukaan UUD, dan Batang Tubuh UUD", "Teks Proklamasi, Pancasila, dan Lagu Kebangsaan", "Presiden, Wakil Presiden, dan Menteri", "Pancasila, Bendera, dan Bahasa"],
+        ans: 0,
+        exp: "Tiga hal pokok tersebut adalah Pernyataan Merdeka, Pembukaan UUD, dan Batang Tubuh UUD."
+    },
+    {
+        pkg: 6,
+        cat: "PPKI",
+        q: "Siapakah nama perwakilan dari Nusa Tenggara dalam keanggotaan awal PPKI?",
+        options: ["I Goesti Ketoet Poedja", "Latuharhary", "Sam Ratulangi", "Tadashi Maeda"],
+        ans: 0,
+        exp: "I Goesti Ketoet Poedja adalah wakil dari Nusa Tenggara."
+    },
+    {
+        pkg: 6,
+        cat: "Garuda Pancasila",
+        q: "Garuda Pancasila melambangkan kekuatan dan gerak dinamis yang ditunjukkan oleh...",
+        options: ["Sayapnya yang mengembang siap terbang ke angkasa", "Kakinya yang diam", "Kepalanya yang menoleh", "Warna bulunya"],
+        ans: 0,
+        exp: "Sayap mengembang melambangkan gerak dinamis dan siap terbang tinggi."
+    },
+    {
+        pkg: 6,
+        cat: "Lambang Sila",
+        q: "Akar tunggang pohon beringin yang melancip menghujam ke tanah melambangkan...",
+        options: ["Kekuatan dan persatuan bangsa Indonesia", "Keberagaman budaya", "Tempat berteduh", "Kesucian"],
+        ans: 0,
+        exp: "Akar tunggang melambangkan persatuan dan kekuatan yang kokoh."
+    },
+    {
+        pkg: 6,
+        cat: "Nilai Juang",
+        q: "Perilaku tidak mau menang sendiri saat diskusi kelas adalah wujud meneladani nilai juang...",
+        options: ["Menghargai pendapat", "Memaksa kehendak", "Egois", "Sombong"],
+        ans: 0,
+        exp: "Tidak menang sendiri adalah wujud menghargai pendapat orang lain."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 4",
+        q: "Melakukan keputusan bersama dengan tanggung jawab di sekolah adalah penerapan sila...",
+        options: ["Ke-4", "Ke-3", "Ke-2", "Ke-1"],
+        ans: 0,
+        exp: "Tanggung jawab atas keputusan bersama adalah amanat Sila 4."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 5",
+        q: "Bekerja sama dalam melakukan tugas kelompok secara adil merupakan contoh Sila ke-5 di...",
+        options: ["Sekolah", "Rumah", "Masyarakat", "Desa"],
+        ans: 0,
+        exp: "Kerja sama kelompok adil adalah pengamalan Sila 5 di sekolah."
+    },
+	{
+        pkg: 6,
+        cat: "Garuda Pancasila",
+        q: "Perisai pada dada burung Garuda dibagi menjadi ruang atas dan bawah oleh garis melintang yang melambangkan...",
+        options: ["Garis Khatulistiwa", "Garis Bujur", "Batas Negara", "Lautan"],
+        ans: 0,
+        exp: "Garis hitam tebal melambangkan garis khatulistiwa."
+    },
+    {
+        pkg: 6,
+        cat: "Penerapan Sila 5",
+        q: "Suka memberi pertolongan kepada orang lain secara adil merupakan butir sila...",
+        options: ["Ke-5", "Ke-2", "Ke-3", "Ke-1"],
+        ans: 0,
+        exp: "Suka menolong secara adil adalah butir Sila 5."
+    },
+        ];
+
+        // Package Information Metadata
+        const packageMeta = {
+            0: { title: "Ujian Komprehensif (Semua 50 Soal)", icon: "🏆", bg: "bg-red-600", text: "text-red-600" },
+            1: { title: "Paket 1: Bintang (Sejarah BPUPK)", icon: "⭐", bg: "bg-amber-500", text: "text-amber-600" },
+            2: { title: "Paket 2: Rantai (Tokoh Perumus)", icon: "⛓️", bg: "bg-red-500", text: "text-red-600" },
+            3: { title: "Paket 3: Pohon Beringin (Panitia Sembilan)", icon: "🌳", bg: "bg-emerald-600", text: "text-emerald-600" },
+            4: { title: "Paket 4: Kepala Banteng (Sidang PPKI)", icon: "🐂", bg: "bg-purple-600", text: "text-purple-600" },
+            5: { title: "Paket 5: Padi dan Kapas (Garuda Pancasila)", icon: "🌾", bg: "bg-yellow-500", text: "text-yellow-600" },
+            6: { title: "Paket 6: Garuda (Nilai Juang & Sila)", icon: "🦅", bg: "bg-blue-600", text: "text-blue-600" }
+        };
+
+        let currentPackage = 1;
+        let activeQuestions = [];
+        let currentIndex = 0;
+        let userAnswers = [];
+        let quizTimerInterval = null;
+        let totalSeconds = 0;
+
+        function showScreen(screenId) {
+            document.getElementById('homeScreen').classList.add('hidden');
+            document.getElementById('quizScreen').classList.add('hidden');
+            document.getElementById('resultScreen').classList.add('hidden');
+            
+            document.getElementById(screenId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectPackage(pkgId) {
+            playSFX('click');
+            currentPackage = pkgId;
+            
+            if (pkgId === 0) {
+                activeQuestions = [...allQuestions];
+            } else {
+                activeQuestions = allQuestions.filter(q => q.pkg === pkgId);
+            }
+
+            currentIndex = 0;
+            userAnswers = new Array(activeQuestions.length).fill(null);
+            totalSeconds = 0;
+
+            // Update UI Header
+            const meta = packageMeta[pkgId];
+            document.getElementById('pkgBadgeIcon').innerText = meta.icon;
+            document.getElementById('pkgTitle').innerText = meta.title;
+
+            showScreen('quizScreen');
+            startTimer();
+            renderQuestion();
+        }
+
+        function startTimer() {
+            if (quizTimerInterval) clearInterval(quizTimerInterval);
+            quizTimerInterval = setInterval(() => {
+                totalSeconds++;
+                const mins = Math.floor(totalSeconds / 60);
+                const secs = totalSeconds % 60;
+                document.getElementById('timerDisplay').innerText = 
+                    `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function stopTimer() {
+            if (quizTimerInterval) clearInterval(quizTimerInterval);
+        }
+
+        function renderQuestion() {
+            const q = activeQuestions[currentIndex];
+            const total = activeQuestions.length;
+
+            document.getElementById('questionTag').innerText = `Soal #${currentIndex + 1} dari ${total}`;
+            document.getElementById('categoryLabel').innerText = q.cat;
+            document.getElementById('questionText').innerText = q.q;
+            document.getElementById('progressText').innerText = `${currentIndex + 1} / ${total}`;
+            
+            const progressPct = Math.round(((currentIndex + 1) / total) * 100);
+            document.getElementById('progressBar').style.width = `${progressPct}%`;
+
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            const explanationBox = document.getElementById('explanationBox');
+            explanationBox.classList.add('hidden');
+
+            const hasAnswered = userAnswers[currentIndex] !== null;
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-2xl border-2 font-bold text-xs sm:text-sm transition flex items-start gap-3 ${
+                    hasAnswered ? 'cursor-default' : 'hover:border-red-500 hover:bg-red-50 cursor-pointer'
+                }`;
+
+                let optionBadgeClass = "bg-slate-200 text-slate-700";
+                let borderClass = "border-slate-200 bg-white";
+
+                if (hasAnswered) {
+                    const selected = userAnswers[currentIndex];
+                    if (idx === q.ans) {
+                        borderClass = "border-emerald-500 bg-emerald-50 text-emerald-900";
+                        optionBadgeClass = "bg-emerald-500 text-white";
+                    } else if (idx === selected) {
+                        borderClass = "border-rose-500 bg-rose-50 text-rose-900";
+                        optionBadgeClass = "bg-rose-500 text-white";
+                    } else {
+                        borderClass = "border-slate-200 bg-slate-50 opacity-60";
+                    }
+                }
+
+                btn.className += ` ${borderClass}`;
+                btn.innerHTML = `
+                    <span class="w-7 h-7 rounded-xl ${optionBadgeClass} font-black text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        ${String.fromCharCode(65 + idx)}
+                    </span>
+                    <span class="leading-snug my-auto">${opt}</span>
+                `;
+
+                if (!hasAnswered) {
+                    btn.onclick = () => selectAnswer(idx);
+                }
+
+                container.appendChild(btn);
+            });
+
+            const nextBtn = document.getElementById('nextBtn');
+            if (hasAnswered) {
+                showExplanation(q);
+                nextBtn.classList.remove('hidden');
+                if (currentIndex === activeQuestions.length - 1) {
+                    nextBtn.innerHTML = `<span>Lihat Hasil Akhir</span> <i class="fa-solid fa-trophy"></i>`;
+                } else {
+                    nextBtn.innerHTML = `<span>Soal Selanjutnya</span> <i class="fa-solid fa-arrow-right"></i>`;
+                }
+            } else {
+                nextBtn.classList.add('hidden');
+            }
+        }
+
+        function selectAnswer(optionIdx) {
+            userAnswers[currentIndex] = optionIdx;
+            const q = activeQuestions[currentIndex];
+
+            if (optionIdx === q.ans) {
+                playSFX('correct');
+            } else {
+                playSFX('wrong');
+            }
+
+            renderQuestion();
+        }
+
+        function showExplanation(q) {
+            const explanationBox = document.getElementById('explanationBox');
+            const selected = userAnswers[currentIndex];
+            const isCorrect = selected === q.ans;
+
+            explanationBox.classList.remove('hidden');
+            if (isCorrect) {
+                explanationBox.className = "mt-5 p-4 rounded-2xl text-xs sm:text-sm font-bold border bg-emerald-50 border-emerald-300 text-emerald-900 animate-pop";
+                explanationBox.innerHTML = `
+                    <div class="flex items-center gap-2 mb-1 text-emerald-700 font-extrabold">
+                        <i class="fa-solid fa-circle-check text-lg"></i> Jawaban Tepat (+10 Poin)
+                    </div>
+                    <p class="font-normal text-slate-700">${q.exp}</p>
+                `;
+            } else {
+                explanationBox.className = "mt-5 p-4 rounded-2xl text-xs sm:text-sm font-bold border bg-rose-50 border-rose-300 text-rose-900 animate-pop";
+                explanationBox.innerHTML = `
+                    <div class="flex items-center gap-2 mb-1 text-rose-700 font-extrabold">
+                        <i class="fa-solid fa-circle-xmark text-lg"></i> Jawaban Kurang Tepat
+                    </div>
+                    <p class="font-normal text-slate-700">Jawaban Benar: <b class="text-emerald-700">${String.fromCharCode(65 + q.ans)}. ${q.options[q.ans]}</b></p>
+                    <p class="font-normal text-slate-600 mt-1">${q.exp}</p>
+                `;
+            }
+        }
+
+        function nextQuestion() {
+            playSFX('click');
+            if (currentIndex < activeQuestions.length - 1) {
+                currentIndex++;
+                renderQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            stopTimer();
+            playSFX('victory');
+
+            let correct = 0;
+            activeQuestions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.ans) correct++;
+            });
+
+            const total = activeQuestions.length;
+            const wrong = total - correct;
+            const scorePct = Math.round((correct / total) * 100);
+
+            document.getElementById('resultGroupTitle').innerText = `Hasil ${packageMeta[currentPackage].title}`;
+            document.getElementById('finalScoreDisplay').innerText = scorePct;
+            document.getElementById('correctCount').innerText = correct;
+            document.getElementById('wrongCount').innerText = wrong;
+
+            const mins = Math.floor(totalSeconds / 60);
+            const secs = totalSeconds % 60;
+            document.getElementById('totalTimeDisplay').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+            // Grade Badge Label
+            const badge = document.getElementById('gradeBadge');
+            if (scorePct >= 90) {
+                badge.className = "inline-block bg-yellow-400 text-red-950 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase shadow";
+                badge.innerText = "Sangat Memuaskan (A) - Hebat!";
+            } else if (scorePct >= 75) {
+                badge.className = "inline-block bg-emerald-400 text-slate-900 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase shadow";
+                badge.innerText = "Baik (B) - Pertahankan!";
+            } else {
+                badge.className = "inline-block bg-orange-400 text-slate-900 text-xs font-extrabold px-3.5 py-1 rounded-full uppercase shadow";
+                badge.innerText = "Perlu Belajar Lagi (C)";
+            }
+
+            // Build Review Items
+            buildReviewList();
+
+            showScreen('resultScreen');
+        }
+
+        function buildReviewList() {
+            const list = document.getElementById('reviewList');
+            list.innerHTML = '';
+
+            activeQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = userAns === q.ans;
+
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-2xl border-2 text-xs font-semibold ${
+                    isCorrect ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'
+                }`;
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center mb-1.5">
+                        <span class="font-extrabold ${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">
+                            Soal #${idx + 1} (${q.cat})
+                        </span>
+                        <span class="text-[10px] font-black px-2 py-0.5 rounded-full ${
+                            isCorrect ? 'bg-emerald-200 text-emerald-800' : 'bg-rose-200 text-rose-800'
+                        }">
+                            ${isCorrect ? 'BENAR' : 'SALAH'}
+                        </span>
+                    </div>
+                    <p class="text-slate-800 font-bold mb-2">${q.q}</p>
+                    <div class="space-y-0.5 text-[11px]">
+                        <p class="text-slate-600">Jawaban Kamu: <b class="${isCorrect ? 'text-emerald-700' : 'text-rose-600'}">${userAns !== null ? String.fromCharCode(65 + userAns) + '. ' + q.options[userAns] : 'Tidak Dijawab'}</b></p>
+                        ${!isCorrect ? `<p class="text-emerald-700">Kunci Jawaban: <b>${String.fromCharCode(65 + q.ans)}. ${q.options[q.ans]}</b></p>` : ''}
+                    </div>
+                    <p class="text-[11px] text-slate-500 italic mt-2 bg-white/80 p-2 rounded-xl border border-slate-100">${q.exp}</p>
+                `;
+
+                list.appendChild(card);
+            });
+        }
+
+        function toggleReviewMode() {
+            playSFX('click');
+            const container = document.getElementById('reviewContainer');
+            const btnText = document.getElementById('reviewBtnText');
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                btnText.innerText = "Sembunyikan Pembahasan";
+            } else {
+                container.classList.add('hidden');
+                btnText.innerText = "Pembahasan Soal";
+            }
+        }
+
+        function retryCurrentPackage() {
+            selectPackage(currentPackage);
+        }
+
+        function confirmExitQuiz() {
+            if (confirm("Apakah Anda yakin ingin keluar? Progres kuis saat ini akan hilang.")) {
+                stopTimer();
+                showScreen('homeScreen');
+            }
+        }
+
+        function openMateriModal() {
+            playSFX('click');
+            document.getElementById('materiModal').classList.remove('hidden');
+        }
+
+        function closeMateriModal() {
+            document.getElementById('materiModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
